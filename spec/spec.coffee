@@ -10,6 +10,6 @@ describe 'enviroment', ->
   it 'should have a dispatch event functionality', ->
     isIE = !!document.createEventObject and !!document.fireEvent
     isNormalBrowser = !!document.createEvent and !!document.dispatchEvent
-    expect(isIE or isNormalBrowser).toBeTrue()
+    expect(isIE or isNormalBrowser).toBe(true)
 
 

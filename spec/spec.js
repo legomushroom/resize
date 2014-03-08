@@ -12,7 +12,7 @@
       var isIE, isNormalBrowser;
       isIE = !!document.createEventObject && !!document.fireEvent;
       isNormalBrowser = !!document.createEvent && !!document.dispatchEvent;
-      return expect(isIE || isNormalBrowser).toBeTrue();
+      return expect(isIE || isNormalBrowser).toBe(true);
     });
   });
 
