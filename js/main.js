@@ -14,7 +14,6 @@
 
     Main.prototype.redefineProto = function() {
       var eventListenerFunction;
-      eventListenerFunction = Element.prototype.addEventListener || Element.prototype.attachEvent;
       if (Element.prototype.addEventListener) {
         eventListenerFunction = Element.prototype.addEventListener;
         return Element.prototype.addEventListener = function() {

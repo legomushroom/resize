@@ -7,8 +7,6 @@ class Main
 		@timerTags = ['input', 'textarea', 'image']
 
 	redefineProto:->
-		eventListenerFunction = Element.prototype.addEventListener or Element.prototype.attachEvent
-
 		if Element::addEventListener
 			eventListenerFunction = Element::addEventListener
 			Element::addEventListener = ->
