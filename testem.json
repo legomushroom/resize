@@ -1,7 +1,7 @@
 {
   "framework": "jasmine",
   "src_files": [
-    "js/**/*.js",
+    "js/anyResizeEvent.js",
     "spec/**/*.js"
   ]
 }

@@ -1,13 +1,15 @@
 describe 'resizer', ->
+  main = null
+  beforeListener = null
   describe 'enviroment', ->
     it 'should have an Element and event listener functionality', ->
       expect(Element).toBeDefined()
-      fun = Element.prototype.addEventListener or Element.prototype.attachEvent
+      fun = Element::addEventListener or Element::attachEvent
       expect(fun).toBeDefined()
 
     it 'should allow to write to Element prototype', ->
-      Element.prototype.testProperty = 'test'
-      expect(Element.prototype.testProperty).toBe('test')
+      Element::testProperty = 'test'
+      expect(Element::testProperty).toBe('test')
 
     it 'should have a dispatch event functionality', ->
       isIE = !!document.createEventObject and !!document.fireEvent
@@ -21,11 +23,10 @@ describe 'resizer', ->
       expect(el.offsetHeight).toBeDefined()
     
   describe 'DOM', ->
-    main = null
     it 'should rewrite addEventListener proto', ->
-      before = Element.prototype.addEventListener
+      beforeListener = Element::addEventListener
       main = new window.anyResizeEvent
-      expect(Element.prototype.addEventListener).not.toBe(before)
+      expect(Element::addEventListener).not.toBe(beforeListener)
     
     it 'should add iframe to the element', ->
       el = document.createElement 'div'
@@ -72,6 +73,8 @@ describe 'resizer', ->
       expect(iframe.style.width).toBe('100%')
       expect(iframe.style.height).toBe('100%')
       expect(iframe.style.zIndex).toBe('-999')
+      expect(parseInt(iframe.style.top,10)).toBe(0)
+      expect(parseInt(iframe.style.left,10)).toBe(0)
       expect(iframe.style.visibility).toBe('hidden')
 
   describe 'constrains', ->
@@ -97,6 +100,11 @@ describe 'resizer', ->
       iframe = el.children[0]
       document.body.appendChild el
       expect(el.children.length).toBe(1)
+
+    #! test sould be strictly the last one
+    it 'should reverse old listener on destroy', ->
+      main.destroy()
+      expect(Element::addEventListener).toBe(beforeListener)
 
 
 

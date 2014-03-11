@@ -35,23 +35,6 @@ var paths = {
 	}
 }
 
-// var testFiles = [
-// 			paths.dist.js+'**/*.js',
-// 			'spec/**/*.js'
-// 		];
-
-// gulp.task('test',function(){
-// 	// Be sure to return the stream
-//   return gulp.src(testFiles)
-//     .pipe(karma({
-//       configFile: 'karma.conf.js',
-//       action: 'run'
-//     }))
-//     .on('error', function(err) {
-//       // Make sure failed tests cause gulp to exit non-zero
-//       throw err;
-//     });
-// });
 
 gulp.task('stylus', function(){
 	return gulp.src(devFolder + 'css/main.styl')
@@ -138,13 +121,6 @@ gulp.task('default', function(){
 		gulp.run('index:jade');
 		server.changed(e.path);
 	});
-
-	// gulp.src(testFiles)
- //    .pipe(karma({
- //      configFile: 'karma.conf.js',
- //      action: 'watch',
- //      debug: true
- //    }));
 
 });
 

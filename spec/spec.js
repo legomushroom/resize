@@ -1,5 +1,8 @@
 (function() {
   describe('resizer', function() {
+    var beforeListener, main;
+    main = null;
+    beforeListener = null;
     describe('enviroment', function() {
       it('should have an Element and event listener functionality', function() {
         var fun;
@@ -26,13 +29,10 @@
       });
     });
     describe('DOM', function() {
-      var main;
-      main = null;
       it('should rewrite addEventListener proto', function() {
-        var before;
-        before = Element.prototype.addEventListener;
+        beforeListener = Element.prototype.addEventListener;
         main = new window.anyResizeEvent;
-        return expect(Element.prototype.addEventListener).not.toBe(before);
+        return expect(Element.prototype.addEventListener).not.toBe(beforeListener);
       });
       it('should add iframe to the element', function() {
         var el;
@@ -86,6 +86,8 @@
         expect(iframe.style.width).toBe('100%');
         expect(iframe.style.height).toBe('100%');
         expect(iframe.style.zIndex).toBe('-999');
+        expect(parseInt(iframe.style.top, 10)).toBe(0);
+        expect(parseInt(iframe.style.left, 10)).toBe(0);
         return expect(iframe.style.visibility).toBe('hidden');
       });
     });
@@ -107,7 +109,7 @@
         document.body.appendChild(el);
         return expect(el.children.length).toBe(1);
       });
-      return it('should add only one listener', function() {
+      it('should add only one listener', function() {
         var el, iframe;
         el = document.createElement('div');
         el.addEventListener('resize', (function() {}), false);
@@ -115,6 +117,10 @@
         iframe = el.children[0];
         document.body.appendChild(el);
         return expect(el.children.length).toBe(1);
+      });
+      return it('should reverse old listener on destroy', function() {
+        main.destroy();
+        return expect(Element.prototype.addEventListener).toBe(beforeListener);
       });
     });
   });
