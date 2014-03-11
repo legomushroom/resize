@@ -1,18 +1,121 @@
 (function() {
-  describe('enviroment', function() {
-    it('should have an Element and it\'s prototype', function() {
-      expect(Element).toBeDefined();
-      return expect(Element.prototype.addEventListener || Element.prototype.attachEvent).toBeDefined();
+  describe('resizer', function() {
+    describe('enviroment', function() {
+      it('should have an Element and event listener functionality', function() {
+        var fun;
+        expect(Element).toBeDefined();
+        fun = Element.prototype.addEventListener || Element.prototype.attachEvent;
+        return expect(fun).toBeDefined();
+      });
+      it('should allow to write to Element prototype', function() {
+        Element.prototype.testProperty = 'test';
+        return expect(Element.prototype.testProperty).toBe('test');
+      });
+      it('should have a dispatch event functionality', function() {
+        var isIE, isNormalBrowser;
+        isIE = !!document.createEventObject && !!document.fireEvent;
+        isNormalBrowser = !!document.createEvent && !!document.dispatchEvent;
+        return expect(isIE || isNormalBrowser).toBe(true);
+      });
+      return it('should have size detection functionality', function() {
+        var el;
+        el = document.createElement('div');
+        document.body.appendChild(el);
+        expect(el.offsetWidth).toBeDefined();
+        return expect(el.offsetHeight).toBeDefined();
+      });
     });
-    it('should allow to write to Element prototype', function() {
-      Element.prototype.testProperty = 'test';
-      return expect(Element.prototype.testProperty).toBe('test');
+    describe('DOM', function() {
+      var main;
+      main = null;
+      it('should rewrite addEventListener proto', function() {
+        var before;
+        before = Element.prototype.addEventListener;
+        main = new window.anyResizeEvent;
+        return expect(Element.prototype.addEventListener).not.toBe(before);
+      });
+      it('should add iframe to the element', function() {
+        var el;
+        el = document.createElement('div');
+        document.body.appendChild(el);
+        el.addEventListener('resize', (function() {}), false);
+        return expect(el.children.length).toBe(1);
+      });
+      it('should have an access to iframe window', function() {
+        var el, iframe;
+        el = document.createElement('div');
+        el.addEventListener('resize', (function() {}), false);
+        iframe = el.children[0];
+        document.body.appendChild(el);
+        return expect(iframe.contentWindow).toBeDefined();
+      });
+      it('iframe should have a onresize method', function() {
+        var el, iframe;
+        el = document.createElement('div');
+        el.addEventListener('resize', (function() {}), false);
+        iframe = el.children[0];
+        document.body.appendChild(el);
+        return expect(iframe.contentWindow.onresize).toBeDefined();
+      });
+      it('should add position: relative style to static element', function() {
+        var el;
+        el = document.createElement('div');
+        el.addEventListener('resize', (function() {}), false);
+        return expect(el.style.position).toBe('relative');
+      });
+      it('should not alter absolute position style', function() {
+        var el;
+        el = document.createElement('div');
+        el.style.position = 'absolute';
+        el.addEventListener('resize', (function() {}), false);
+        return expect(el.style.position).toBe('absolute');
+      });
+      it('should not alter fixed position style', function() {
+        var el;
+        el = document.createElement('div');
+        el.style.position = 'fixed';
+        el.addEventListener('resize', (function() {}), false);
+        return expect(el.style.position).toBe('fixed');
+      });
+      return it('iframe should have right styles', function() {
+        var el, iframe;
+        el = document.createElement('div');
+        el.addEventListener('resize', (function() {}), false);
+        iframe = el.children[0];
+        expect(iframe.style.position).toBe('absolute');
+        expect(iframe.style.width).toBe('100%');
+        expect(iframe.style.height).toBe('100%');
+        expect(iframe.style.zIndex).toBe('-999');
+        return expect(iframe.style.visibility).toBe('hidden');
+      });
     });
-    return it('should have a dispatch event functionality', function() {
-      var isIE, isNormalBrowser;
-      isIE = !!document.createEventObject && !!document.fireEvent;
-      isNormalBrowser = !!document.createEvent && !!document.dispatchEvent;
-      return expect(isIE || isNormalBrowser).toBe(true);
+    return describe('constrains', function() {
+      it('should work on resize event only ', function() {
+        var el, iframe;
+        el = document.createElement('div');
+        el.addEventListener('click', (function() {}), false);
+        iframe = el.children[0];
+        document.body.appendChild(el);
+        return expect(el.children.length).toBe(0);
+      });
+      it('should be initialized only once', function() {
+        var el, iframe;
+        new window.anyResizeEvent;
+        el = document.createElement('div');
+        el.addEventListener('resize', (function() {}), false);
+        iframe = el.children[0];
+        document.body.appendChild(el);
+        return expect(el.children.length).toBe(1);
+      });
+      return it('should add only one listener', function() {
+        var el, iframe;
+        el = document.createElement('div');
+        el.addEventListener('resize', (function() {}), false);
+        el.addEventListener('resize', (function() {}), false);
+        iframe = el.children[0];
+        document.body.appendChild(el);
+        return expect(el.children.length).toBe(1);
+      });
     });
   });
 
