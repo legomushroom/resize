@@ -12,11 +12,11 @@ class Main
     it = @
     wrappedListener = ->
       arguments[0] is 'resize' and !@anyResizeEventInited and it.handleResize
-            args:arguments
-            that:@
-          it.listener.apply(@,arguments)
+        args:arguments
+        that:@
+      it.listener.apply(@,arguments)
     @listener = Element::addEventListener or Element::attachEvent
-    if Element::addEventListener 
+    if Element::addEventListener
       Element::addEventListener = wrappedListener
     else if Element::attachEvent
       Element::attachEvent = wrappedListener
@@ -31,18 +31,24 @@ class Main
     iframe.style.top        = 0
     iframe.style.left       = 0
 
-    parentEl = args.that
-    thatPos = parentEl.style.position
-    if thatPos is 'static' or thatPos is ''
-      parentEl.style.
-      position = 'relative'
+    el = args.that
+    thatPos = el.getComputedStyle
 
-    parentEl.appendChild iframe
-    if iframe.parentNode isnt parentEl
-      iframe.contentWindow?.onresize = (e)=> @dispatchEvent parentEl
+    computedStyle = if window.getComputedStyle
+      getComputedStyle(el)
+    else el.currentStyle
+
+    isStatic = computedStyle.position is 'static' and el.style.position is ''
+    isEmpty  = computedStyle.position is '' and el.style.position is ''
+    if isStatic or isEmpty
+      el.style.position = 'relative'
+
+    el.appendChild iframe
+    if iframe.parentNode isnt el
+      iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
     else
-      @initTimer(parentEl)
-    parentEl.anyResizeEventInited = true
+      @initTimer(el)
+    el.anyResizeEventInited = true
 
   initTimer:(el)->
     width   = 0
@@ -68,7 +74,7 @@ class Main
 
   destroy:->
     clearInterval @interval
-    if Element::addEventListener 
+    if Element::addEventListener
       Element::addEventListener = @listener
     else if Element::attachEvent
       Element::attachEvent = @listener

@@ -20,6 +20,11 @@
         isNormalBrowser = !!document.createEvent && !!document.dispatchEvent;
         return expect(isIE || isNormalBrowser).toBe(true);
       });
+      it('should have a computedStyle functionality', function() {
+        var el;
+        el = document.createElement('div');
+        return expect(window.getComputedStyle || el.currentStyle).toBeDefined();
+      });
       return it('should have size detection functionality', function() {
         var el;
         el = document.createElement('div');

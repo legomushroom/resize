@@ -12,6 +12,7 @@ var watch 				= require('gulp-jade');
 var coffeelint 		= require('gulp-coffeelint');
 var plumber 			= require('gulp-plumber');
 var karma 				= require('gulp-karma');
+var uglify 				= require('gulp-uglify');
 
 var devFolder 	= '';
 var distFolder  = '';
@@ -19,6 +20,7 @@ var distFolder  = '';
 var paths = {
 	src: {
 		js:  			devFolder + 'js/**/*.coffee',
+		mainJs:  	devFolder + 'js/anyResizeEvent.js',
 		css: 			devFolder + 'css/**/*.styl',
 		kit: 			devFolder + 'css/kit.jade',
 		index: 		devFolder + 'index.jade',
@@ -47,14 +49,18 @@ gulp.task('stylus', function(){
 
 
 gulp.task('coffee', function(e){
-	return gulp.src(paths.src.js)
-					.pipe(plumber())
-					.pipe(changed(paths.src.js))
-					.pipe(coffeelint())
-        	.pipe(coffeelint.reporter())
-					.pipe(coffee())
+	gulp.src(paths.src.js)
+		.pipe(plumber())
+		.pipe(changed(paths.src.js))
+		.pipe(coffeelint())
+		.pipe(coffeelint.reporter())
+		.pipe(coffee())
+		.pipe(gulp.dest(paths.dist.js))
+		.pipe(livereload())
+
+	return gulp.src(paths.src.mainJs)
+					.pipe(uglify())
 					.pipe(gulp.dest(paths.dist.js))
-					.pipe(livereload())
 });
 
 gulp.task('coffee:tests', function(e){

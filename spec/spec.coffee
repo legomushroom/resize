@@ -16,6 +16,10 @@ describe 'resizer', ->
       isNormalBrowser = !!document.createEvent and !!document.dispatchEvent
       expect(isIE or isNormalBrowser).toBe(true)
 
+    it 'should have a computedStyle functionality', ->
+      el = document.createElement 'div'
+      expect(window.getComputedStyle or el.currentStyle).toBeDefined()
+
     it 'should have size detection functionality', ->
       el = document.createElement 'div'
       document.body.appendChild el

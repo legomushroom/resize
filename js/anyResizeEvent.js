@@ -35,7 +35,7 @@
     };
 
     Main.prototype.handleResize = function(args) {
-      var iframe, parentEl, thatPos, _ref;
+      var computedStyle, el, iframe, isEmpty, isStatic, thatPos, _ref;
       iframe = document.createElement('iframe');
       iframe.style.width = '100%';
       iframe.style.height = '100%';
@@ -44,24 +44,27 @@
       iframe.style.visibility = 'hidden';
       iframe.style.top = 0;
       iframe.style.left = 0;
-      parentEl = args.that;
-      thatPos = parentEl.style.position;
-      if (thatPos === 'static' || thatPos === '') {
-        parentEl.style.position = 'relative';
+      el = args.that;
+      thatPos = el.getComputedStyle;
+      computedStyle = window.getComputedStyle ? getComputedStyle(el) : el.currentStyle;
+      isStatic = computedStyle.position === 'static' && el.style.position === '';
+      isEmpty = computedStyle.position === '' && el.style.position === '';
+      if (isStatic || isEmpty) {
+        el.style.position = 'relative';
       }
-      parentEl.appendChild(iframe);
-      if (iframe.parentNode !== parentEl) {
+      el.appendChild(iframe);
+      if (iframe.parentNode !== el) {
         if ((_ref = iframe.contentWindow) != null) {
           _ref.onresize = (function(_this) {
             return function(e) {
-              return _this.dispatchEvent(parentEl);
+              return _this.dispatchEvent(el);
             };
           })(this);
         }
       } else {
-        this.initTimer(parentEl);
+        this.initTimer(el);
       }
-      return parentEl.anyResizeEventInited = true;
+      return el.anyResizeEventInited = true;
     };
 
     Main.prototype.initTimer = function(el) {
