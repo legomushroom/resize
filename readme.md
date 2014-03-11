@@ -1,3 +1,13 @@
+**Any Resize Event**
+
+Adds resize event to any html element. It is tiny (about 890 bytes min + gzip) and dependency free.
+
+**Usage**
+
+Just link source file in your html.
+
+**License**
+
 The MIT License (MIT)
 
 Copyright (c) 2014 Oleg Solomka(Legomushroom) legomushroom@gmail.com http://legomushroom.com 

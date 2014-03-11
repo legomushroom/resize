@@ -8,13 +8,8 @@
         return;
       }
       window.anyResizeEventInited = true;
-      this.vars();
       this.redefineProto();
     }
-
-    Main.prototype.vars = function() {
-      return this.timerTags = ['input', 'textarea', 'image'];
-    };
 
     Main.prototype.redefineProto = function() {
       var it, wrappedListener;

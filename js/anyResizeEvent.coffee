@@ -2,11 +2,7 @@ class Main
   constructor:(@o={})->
     return if window.anyResizeEventInited
     window.anyResizeEventInited = true
-    @vars()
     @redefineProto()
-
-  vars:->
-    @timerTags = ['input', 'textarea', 'image']
 
   redefineProto:->
     it = @
