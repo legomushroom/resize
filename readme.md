@@ -1,6 +1,5 @@
 Any Resize Event
 ================
------------
 Adds resize event to any html element. It is tiny (about 800 bytes min + gzip) and dependency free.
 
 ### Usage
