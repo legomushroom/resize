@@ -8,10 +8,10 @@ Just link source file in your html. Add 'resize' event listener to any element a
 
 ###Contibuting
 
-Pull request is way to go. We are using coffeescript as js preprocessor so expecting changes in anyResizeEvent.coffee file.
+Pull request is way to go. Uses coffeescript as js preprocessor so expecting changes in anyResizeEvent.coffee file.
 
 ### Evniroment
-Using [gulp](http://gulpjs.com/) as task runner.
+Uses [gulp](http://gulpjs.com/) as task runner.
 ```sh
 [sudo] npm istall
 ```
@@ -20,7 +20,7 @@ launch gulp:
 gulp
 ```
 ### Tests
-Please test your code. Using [testem](https://github.com/airportyh/testem) as tests runner and [jasmine](http://jasmine.github.io/) as test framework.
+Please test your code. Uses [testem](https://github.com/airportyh/testem) as tests runner and [jasmine](http://jasmine.github.io/) as test framework.
 Launch testem:
 ```sh
 testem
