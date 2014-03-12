@@ -49,7 +49,7 @@ gulp.task('stylus', function(){
 
 
 gulp.task('coffee', function(e){
-	gulp.src(paths.src.js)
+	return gulp.src(paths.src.js)
 		.pipe(plumber())
 		.pipe(changed(paths.src.js))
 		.pipe(coffeelint())
@@ -58,9 +58,9 @@ gulp.task('coffee', function(e){
 		.pipe(gulp.dest(paths.dist.js))
 		.pipe(livereload())
 
-	return gulp.src(paths.src.mainJs)
-					.pipe(uglify())
-					.pipe(gulp.dest(paths.dist.js))
+	// return gulp.src(paths.src.mainJs)
+	// 				.pipe(uglify())
+	// 				.pipe(gulp.dest(paths.dist.js))
 });
 
 gulp.task('coffee:tests', function(e){

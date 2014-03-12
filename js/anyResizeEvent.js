@@ -9,6 +9,20 @@
       }
       window.anyResizeEventInited = true;
       this.redefineProto();
+      this.timerElements = {
+        img: 1,
+        textarea: 1,
+        input: 1,
+        embed: 1,
+        svg: 1,
+        canvas: 1,
+        table: 1,
+        tr: 1,
+        tbody: 1,
+        thead: 1,
+        tfoot: 1,
+        caption: 1
+      };
     }
 
     Main.prototype.redefineProto = function() {
@@ -30,25 +44,24 @@
     };
 
     Main.prototype.handleResize = function(args) {
-      var computedStyle, el, iframe, isEmpty, isStatic, thatPos, _ref;
-      iframe = document.createElement('iframe');
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.style.position = 'absolute';
-      iframe.style.zIndex = -999;
-      iframe.style.visibility = 'hidden';
-      iframe.style.top = 0;
-      iframe.style.left = 0;
+      var computedStyle, el, iframe, isEmpty, isStatic, _ref;
       el = args.that;
-      thatPos = el.getComputedStyle;
-      computedStyle = window.getComputedStyle ? getComputedStyle(el) : el.currentStyle;
-      isStatic = computedStyle.position === 'static' && el.style.position === '';
-      isEmpty = computedStyle.position === '' && el.style.position === '';
-      if (isStatic || isEmpty) {
-        el.style.position = 'relative';
-      }
-      el.appendChild(iframe);
-      if (iframe.parentNode !== el) {
+      if (!this.timerElements[el.tagName.toLowerCase()]) {
+        iframe = document.createElement('iframe');
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.position = 'absolute';
+        iframe.style.zIndex = -999;
+        iframe.style.visibility = 'hidden';
+        iframe.style.top = 0;
+        iframe.style.left = 0;
+        computedStyle = window.getComputedStyle ? getComputedStyle(el) : el.currentStyle;
+        isStatic = computedStyle.position === 'static' && el.style.position === '';
+        isEmpty = computedStyle.position === '' && el.style.position === '';
+        if (isStatic || isEmpty) {
+          el.style.position = 'relative';
+        }
+        el.appendChild(iframe);
         if ((_ref = iframe.contentWindow) != null) {
           _ref.onresize = (function(_this) {
             return function(e) {
@@ -96,6 +109,8 @@
 
     Main.prototype.destroy = function() {
       clearInterval(this.interval);
+      this.interval = null;
+      window.anyResizeEventInited = false;
       if (Element.prototype.addEventListener) {
         return Element.prototype.addEventListener = this.listener;
       } else if (Element.prototype.attachEvent) {
@@ -107,6 +122,8 @@
 
   })();
 
-  window.anyResizeEvent = Main;
+  window.AnyResizeEvent = Main;
+
+  window.anyResizeEvent = new Main;
 
 }).call(this);

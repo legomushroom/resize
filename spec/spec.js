@@ -1,6 +1,7 @@
 (function() {
   describe('resizer', function() {
     var beforeListener, main;
+    window.anyResizeEvent.destroy();
     main = null;
     beforeListener = null;
     describe('enviroment', function() {
@@ -36,7 +37,7 @@
     describe('DOM', function() {
       it('should rewrite addEventListener proto', function() {
         beforeListener = Element.prototype.addEventListener;
-        main = new window.anyResizeEvent;
+        main = new window.AnyResizeEvent;
         return expect(Element.prototype.addEventListener).not.toBe(beforeListener);
       });
       it('should add iframe to the element', function() {
@@ -107,7 +108,7 @@
       });
       it('should be initialized only once', function() {
         var el, iframe;
-        new window.anyResizeEvent;
+        new window.AnyResizeEvent;
         el = document.createElement('div');
         el.addEventListener('resize', (function() {}), false);
         iframe = el.children[0];
@@ -123,9 +124,16 @@
         document.body.appendChild(el);
         return expect(el.children.length).toBe(1);
       });
-      return it('should reverse old listener on destroy', function() {
+      return it('should reverse old listener or inteval on destroy', function() {
+        var el, isInterval, isListener;
+        new window.AnyResizeEvent;
+        el = document.createElement('div');
+        el.addEventListener('resize', (function() {}), false);
+        document.body.appendChild(el);
         main.destroy();
-        return expect(Element.prototype.addEventListener).toBe(beforeListener);
+        isListener = Element.prototype.addEventListener === beforeListener;
+        isInterval = main.interval;
+        return expect(isListener || !isInterval).toBe(true);
       });
     });
   });

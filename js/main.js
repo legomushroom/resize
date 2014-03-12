@@ -1,8 +1,6 @@
 (function() {
   var node;
 
-  new window.anyResizeEvent;
-
   node = document.getElementById('js-test');
 
   node.addEventListener('resize', (function(e) {

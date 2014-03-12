@@ -1,4 +1,4 @@
-new window.anyResizeEvent
+# new window.AnyResizeEvent
 
 node = document.getElementById 'js-test'
 node.addEventListener 'resize', ((e)->console.log('resize')), false

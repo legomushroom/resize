@@ -3,6 +3,19 @@ class Main
     return if window.anyResizeEventInited
     window.anyResizeEventInited = true
     @redefineProto()
+    @timerElements =
+      img:      1
+      textarea: 1
+      input:    1
+      embed:    1
+      svg:      1
+      canvas:   1
+      table:    1
+      tr:       1
+      tbody:    1
+      thead:    1
+      tfoot:    1
+      caption:  1
 
   redefineProto:->
     it = @
@@ -18,32 +31,29 @@ class Main
       Element::attachEvent = wrappedListener
 
   handleResize:(args)->
-    iframe = document.createElement 'iframe'
-    iframe.style.width      = '100%'
-    iframe.style.height     = '100%'
-    iframe.style.position   = 'absolute'
-    iframe.style.zIndex     = -999
-    iframe.style.visibility = 'hidden'
-    iframe.style.top        = 0
-    iframe.style.left       = 0
-
     el = args.that
-    thatPos = el.getComputedStyle
+    if !@timerElements[el.tagName.toLowerCase()]
+      iframe = document.createElement 'iframe'
+      iframe.style.width      = '100%'
+      iframe.style.height     = '100%'
+      iframe.style.position   = 'absolute'
+      iframe.style.zIndex     = -999
+      iframe.style.visibility = 'hidden'
+      iframe.style.top        = 0
+      iframe.style.left       = 0
 
-    computedStyle = if window.getComputedStyle
-      getComputedStyle(el)
-    else el.currentStyle
+      computedStyle = if window.getComputedStyle
+        getComputedStyle(el)
+      else el.currentStyle
 
-    isStatic = computedStyle.position is 'static' and el.style.position is ''
-    isEmpty  = computedStyle.position is '' and el.style.position is ''
-    if isStatic or isEmpty
-      el.style.position = 'relative'
+      isStatic = computedStyle.position is 'static' and el.style.position is ''
+      isEmpty  = computedStyle.position is '' and el.style.position is ''
+      if isStatic or isEmpty
+        el.style.position = 'relative'
 
-    el.appendChild iframe
-    if iframe.parentNode isnt el
+      el.appendChild iframe
       iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
-    else
-      @initTimer(el)
+    else @initTimer(el)
     el.anyResizeEventInited = true
 
   initTimer:(el)->
@@ -70,9 +80,12 @@ class Main
 
   destroy:->
     clearInterval @interval
+    @interval = null
+    window.anyResizeEventInited = false
     if Element::addEventListener
       Element::addEventListener = @listener
     else if Element::attachEvent
       Element::attachEvent = @listener
 
-window.anyResizeEvent = Main
+window.AnyResizeEvent = Main
+window.anyResizeEvent = new Main

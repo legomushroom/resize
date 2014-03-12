@@ -1,4 +1,5 @@
 describe 'resizer', ->
+  window.anyResizeEvent.destroy()
   main = null
   beforeListener = null
   describe 'enviroment', ->
@@ -29,7 +30,7 @@ describe 'resizer', ->
   describe 'DOM', ->
     it 'should rewrite addEventListener proto', ->
       beforeListener = Element::addEventListener
-      main = new window.anyResizeEvent
+      main = new window.AnyResizeEvent
       expect(Element::addEventListener).not.toBe(beforeListener)
     
     it 'should add iframe to the element', ->
@@ -90,7 +91,7 @@ describe 'resizer', ->
       expect(el.children.length).toBe(0)
 
     it 'should be initialized only once', ->
-      new window.anyResizeEvent
+      new window.AnyResizeEvent
       el = document.createElement 'div'
       el.addEventListener 'resize', (->), false
       iframe = el.children[0]
@@ -106,9 +107,15 @@ describe 'resizer', ->
       expect(el.children.length).toBe(1)
 
     #! test sould be strictly the last one
-    it 'should reverse old listener on destroy', ->
+    it 'should reverse old listener or inteval on destroy', ->
+      new window.AnyResizeEvent
+      el = document.createElement 'div'
+      el.addEventListener 'resize', (->), false
+      document.body.appendChild el
       main.destroy()
-      expect(Element::addEventListener).toBe(beforeListener)
+      isListener = (Element::addEventListener is beforeListener)
+      isInterval = main.interval
+      expect(isListener or !isInterval).toBe(true)
 
 
 
