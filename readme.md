@@ -2,17 +2,17 @@ Any Resize Event
 ================
 -----------
 Adds resize event to any html element. It is tiny (about 800 bytes min + gzip) and dependency free.
-http://codepen.io/sol0mka/pen/FnizC
+
 ### Usage
 
-Just link source file in your html. Add event listeners as usual. Plays well with jquery too.
+Just link source file in your html. Add 'resize' event listener to any element as usual. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
 
 ###Contibuting
 
 Pull request is way to go. We are using coffeescript as js preprocessor so expecting changes in anyResizeEvent.coffee file.
 
 ### Evniroment
-Using [gulp](http://gulpjs.com/) as task runner and [testem](https://github.com/airportyh/testem) as tests runner.
+Using [gulp](http://gulpjs.com/) as task runner.
 ```sh
 [sudo] npm istall
 ```
@@ -20,15 +20,16 @@ launch gulp:
 ```sh
 gulp
 ```
-launch testem
+### Tests
+Please test your code. Using [testem](https://github.com/airportyh/testem) as tests runner and [jasmine](http://jasmine.github.io/) as test framework.
+Launch testem:
 ```sh
 testem
 ```
+You are all set.
 
 ### License
-
 The MIT License (MIT)
-
 Copyright (c) 2014 Oleg Solomka(Legomushroom) legomushroom@gmail.com http://legomushroom.com 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
