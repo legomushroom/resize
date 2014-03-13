@@ -51,7 +51,7 @@ describe 'resizer', ->
       el.addEventListener 'resize', (->), false
       iframe = el.children[0]
       document.body.appendChild el
-      expect(iframe.contentWindow.onresize).toBeDefined()
+      expect(iframe.contentWindow.onresize or main.interval).toBeDefined()
 
     it 'should add position: relative style to static element', ->
       el = document.createElement 'div'
