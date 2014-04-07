@@ -29,10 +29,12 @@
       var it, wrappedListener;
       it = this;
       wrappedListener = function() {
-        arguments[0] === 'resize' && !this.anyResizeEventInited && it.handleResize({
-          args: arguments,
-          that: this
-        });
+        if (this !== window || this !== document) {
+          arguments[0] === 'resize' && !this.anyResizeEventInited && it.handleResize({
+            args: arguments,
+            that: this
+          });
+        }
         return it.listener.apply(this, arguments);
       };
       this.listener = Element.prototype.addEventListener || Element.prototype.attachEvent;

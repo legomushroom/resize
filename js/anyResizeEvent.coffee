@@ -17,12 +17,14 @@ class Main
       tfoot:    1
       caption:  1
 
+
   redefineProto:->
     it = @
     wrappedListener = ->
-      arguments[0] is 'resize' and !@anyResizeEventInited and it.handleResize
-        args:arguments
-        that:@
+      if @ isnt window or @ isnt document
+        arguments[0] is 'resize' and !@anyResizeEventInited and it.handleResize
+          args:arguments
+          that:@
       it.listener.apply(@,arguments)
     @listener = Element::addEventListener or Element::attachEvent
     if Element::addEventListener

@@ -113,8 +113,8 @@ describe 'resizer', ->
       document.body.appendChild el
       scope = null
       el.addEventListener 'resize', (-> scope = @ ), false
-      waits(50); runs -> el.style.width = '201px'
-      waits(50); runs ->
+      waits(10); runs -> el.style.width = '201px'
+      waits(10); runs ->
         expect(scope).toEqual(el)
 
     #! test sould be strictly the last one
