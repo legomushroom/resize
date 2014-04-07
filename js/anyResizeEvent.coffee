@@ -34,6 +34,7 @@ class Main
     el = args.that
     if !@timerElements[el.tagName.toLowerCase()]
       iframe = document.createElement 'iframe'
+      el.appendChild iframe
       iframe.style.width      = '100%'
       iframe.style.height     = '100%'
       iframe.style.position   = 'absolute'
@@ -51,8 +52,12 @@ class Main
       if isStatic or isEmpty
         el.style.position = 'relative'
 
-      el.appendChild iframe
-      iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
+      # odd opera fix
+      setTimeout =>
+        console.log iframe.contentWindow
+        iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
+      , 1
+
     else @initTimer(el)
     el.anyResizeEventInited = true
 

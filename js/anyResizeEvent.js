@@ -44,10 +44,11 @@
     };
 
     Main.prototype.handleResize = function(args) {
-      var computedStyle, el, iframe, isEmpty, isStatic, _ref;
+      var computedStyle, el, iframe, isEmpty, isStatic;
       el = args.that;
       if (!this.timerElements[el.tagName.toLowerCase()]) {
         iframe = document.createElement('iframe');
+        el.appendChild(iframe);
         iframe.style.width = '100%';
         iframe.style.height = '100%';
         iframe.style.position = 'absolute';
@@ -61,14 +62,15 @@
         if (isStatic || isEmpty) {
           el.style.position = 'relative';
         }
-        el.appendChild(iframe);
-        if ((_ref = iframe.contentWindow) != null) {
-          _ref.onresize = (function(_this) {
-            return function(e) {
+        setTimeout((function(_this) {
+          return function() {
+            var _ref;
+            console.log(iframe.contentWindow);
+            return (_ref = iframe.contentWindow) != null ? _ref.onresize = function(e) {
               return _this.dispatchEvent(el);
-            };
-          })(this);
-        }
+            } : void 0;
+          };
+        })(this), 1);
       } else {
         this.initTimer(el);
       }

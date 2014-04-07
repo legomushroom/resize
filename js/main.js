@@ -1,5 +1,7 @@
 (function() {
-  var node;
+  var node, resizer;
+
+  resizer = new window.AnyResizeEvent;
 
   node = document.getElementById('js-test');
 

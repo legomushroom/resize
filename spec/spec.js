@@ -55,13 +55,16 @@
         document.body.appendChild(el);
         return expect(iframe.contentWindow).toBeDefined();
       });
-      it('iframe should have a onresize method', function() {
+      it('iframe should have onresize method', function() {
         var el, iframe;
         el = document.createElement('div');
         document.body.appendChild(el);
         el.addEventListener('resize', (function() {}), false);
         iframe = el.children[0];
-        return expect(iframe.contentWindow.onresize || main.interval).toBeDefined();
+        waits(2);
+        return runs(function() {
+          return expect(iframe.contentWindow.onresize || main.interval).toBeDefined();
+        });
       });
       it('should add position: relative style to static element', function() {
         var el;
@@ -91,7 +94,7 @@
         expect(iframe.style.position).toBe('absolute');
         expect(iframe.style.width).toBe('100%');
         expect(iframe.style.height).toBe('100%');
-        expect(iframe.style.zIndex).toBe('-999');
+        expect(iframe.style.zIndex + '').toBe('-999');
         expect(parseInt(iframe.style.top, 10)).toBe(0);
         expect(parseInt(iframe.style.left, 10)).toBe(0);
         return expect(iframe.style.visibility).toBe('hidden');
@@ -127,14 +130,16 @@
       it('should have node\'s scope', function() {
         var el, scope;
         el = document.createElement('div');
-        scope = null;
         document.body.appendChild(el);
+        scope = null;
         el.addEventListener('resize', (function() {
           return scope = this;
         }), false);
         el.style.width = '201px';
-        console.log(scope);
-        return expect(scope).toBeEqual(el);
+        waits(150);
+        return runs(function() {
+          return expect(scope).toEqual(el);
+        });
       });
       return it('should reverse old listener or inteval on destroy', function() {
         var el, isInterval, isListener;
