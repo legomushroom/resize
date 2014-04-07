@@ -113,8 +113,9 @@ describe 'resizer', ->
       document.body.appendChild el
       scope = null
       el.addEventListener 'resize', (-> scope = @ ), false
-      el.style.width = '201px'
-      waits(150); runs -> expect(scope).toEqual(el)
+      waits(50); runs -> el.style.width = '201px'
+      waits(50); runs ->
+        expect(scope).toEqual(el)
 
     #! test sould be strictly the last one
     it 'should reverse old listener or inteval on destroy', ->

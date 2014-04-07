@@ -44,7 +44,7 @@
     };
 
     Main.prototype.handleResize = function(args) {
-      var computedStyle, el, iframe, isEmpty, isStatic;
+      var computedStyle, el, iframe, isEmpty, isStatic, _ref;
       el = args.that;
       if (!this.timerElements[el.tagName.toLowerCase()]) {
         iframe = document.createElement('iframe');
@@ -62,15 +62,13 @@
         if (isStatic || isEmpty) {
           el.style.position = 'relative';
         }
-        setTimeout((function(_this) {
-          return function() {
-            var _ref;
-            console.log(iframe.contentWindow);
-            return (_ref = iframe.contentWindow) != null ? _ref.onresize = function(e) {
+        if ((_ref = iframe.contentWindow) != null) {
+          _ref.onresize = (function(_this) {
+            return function(e) {
               return _this.dispatchEvent(el);
-            } : void 0;
-          };
-        })(this), 1);
+            };
+          })(this);
+        }
       } else {
         this.initTimer(el);
       }
@@ -97,13 +95,13 @@
 
     Main.prototype.dispatchEvent = function(el) {
       var e;
-      if (document.createEventObject) {
-        e = document.createEventObject();
-        return el.fireEvent('resize', e);
-      } else if (document.createEvent) {
+      if (document.createEvent) {
         e = document.createEvent('HTMLEvents');
         e.initEvent('resize', false, false);
         return el.dispatchEvent(e);
+      } else if (document.createEventObject) {
+        e = document.createEventObject();
+        return el.fireEvent('resize', e);
       } else {
         return false;
       }

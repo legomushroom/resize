@@ -135,8 +135,11 @@
         el.addEventListener('resize', (function() {
           return scope = this;
         }), false);
-        el.style.width = '201px';
-        waits(150);
+        waits(50);
+        runs(function() {
+          return el.style.width = '201px';
+        });
+        waits(50);
         return runs(function() {
           return expect(scope).toEqual(el);
         });

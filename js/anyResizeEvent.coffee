@@ -52,11 +52,7 @@ class Main
       if isStatic or isEmpty
         el.style.position = 'relative'
 
-      # odd opera fix
-      setTimeout =>
-        console.log iframe.contentWindow
-        iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
-      , 1
+      iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
 
     else @initTimer(el)
     el.anyResizeEventInited = true
@@ -74,13 +70,13 @@ class Main
     , @o.interval or 500
 
   dispatchEvent:(el)->
-    if document.createEventObject
-      e = document.createEventObject()
-      el.fireEvent 'resize', e
-    else if document.createEvent
+    if document.createEvent
       e = document.createEvent 'HTMLEvents'
       e.initEvent 'resize', false, false
       el.dispatchEvent e
+    else if document.createEventObject
+      e = document.createEventObject()
+      el.fireEvent 'resize', e
     else return false
 
   destroy:->
