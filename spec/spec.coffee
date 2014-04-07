@@ -27,7 +27,7 @@ describe 'resizer', ->
       expect(el.offsetWidth).toBeDefined()
       expect(el.offsetHeight).toBeDefined()
     
-  describe 'DOM', ->
+  describe 'DOM:', ->
     it 'should rewrite addEventListener proto', ->
       beforeListener = Element::addEventListener
       main = new window.AnyResizeEvent
@@ -48,9 +48,9 @@ describe 'resizer', ->
 
     it 'iframe should have a onresize method', ->
       el = document.createElement 'div'
+      document.body.appendChild el
       el.addEventListener 'resize', (->), false
       iframe = el.children[0]
-      document.body.appendChild el
       expect(iframe.contentWindow.onresize or main.interval).toBeDefined()
 
     it 'should add position: relative style to static element', ->
@@ -82,7 +82,7 @@ describe 'resizer', ->
       expect(parseInt(iframe.style.left,10)).toBe(0)
       expect(iframe.style.visibility).toBe('hidden')
 
-  describe 'constrains', ->
+  describe 'constrains:', ->
     it 'should work on resize event only ', ->
       el = document.createElement 'div'
       el.addEventListener 'click', (->), false
@@ -105,6 +105,15 @@ describe 'resizer', ->
       iframe = el.children[0]
       document.body.appendChild el
       expect(el.children.length).toBe(1)
+
+    it 'should have node\'s scope' , ->
+      el = document.createElement 'div'
+      scope = null
+      document.body.appendChild el
+      el.addEventListener 'resize', (-> scope = @ ), false
+      el.style.width = '201px'
+      console.log(scope)
+      expect(scope).toBeEqual(el)
 
     #! test sould be strictly the last one
     it 'should reverse old listener or inteval on destroy', ->
