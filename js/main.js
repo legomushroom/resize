@@ -4,7 +4,8 @@
   node = document.getElementById('js-test');
 
   node.addEventListener('resize', (function(e) {
-    return console.log('resize');
+    console.log('resize');
+    return console.log(this);
   }), false);
 
   setTimeout(function() {
