@@ -97,7 +97,7 @@
         expect(iframe.style.zIndex + '').toBe('-999');
         expect(parseInt(iframe.style.top, 10)).toBe(0);
         expect(parseInt(iframe.style.left, 10)).toBe(0);
-        return expect(iframe.style.visibility).toBe('hidden');
+        return expect(iframe.style.opacity).toBe('0');
       });
     });
     return describe('constrains:', function() {
@@ -135,11 +135,11 @@
         el.addEventListener('resize', (function() {
           return scope = this;
         }), false);
-        waits(10);
+        waits(50);
         runs(function() {
           return el.style.width = '201px';
         });
-        waits(10);
+        waits(50);
         return runs(function() {
           return expect(scope).toEqual(el);
         });

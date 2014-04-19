@@ -12,6 +12,23 @@ html
 			div#js-test.test
 			//- p content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content 
 
+
+		//- iframe(id="js-test-iframe", name="a", style="width:100%; height: 100%; opacity: 0;")
+		//- script.
+		//- 	var iframe = document.getElementById('js-test-iframe');
+		//- 	var iframe2 = iframe.cloneNode(true);
+		//- 	document.body.appendChild(iframe2);
+		//- 	iframe2.contentWindow.onresize = function(){
+		//- 		console.log('a');
+		//- 	}
+
+		script.
+			console.log(Element.prototype);
+			console.log(Element.prototype);
+
+		//- 	console.log(iframe.contentWindow)
+		//- 	console.log(a)
+
 		script(src="js/anyResizeEvent.js")
 		script(src="js/main.js")
 

@@ -37,6 +37,8 @@ describe 'resizer', ->
       el = document.createElement 'div'
       document.body.appendChild el
       el.addEventListener 'resize', (->), false
+      # console.log el.children.length
+      # console.log el.children.length
       expect(el.children.length).toBe(1)
 
     it 'should have an access to iframe window', ->
@@ -82,7 +84,7 @@ describe 'resizer', ->
       expect(iframe.style.zIndex+'').toBe('-999')
       expect(parseInt(iframe.style.top,10)).toBe(0)
       expect(parseInt(iframe.style.left,10)).toBe(0)
-      expect(iframe.style.visibility).toBe('hidden')
+      expect(iframe.style.opacity).toBe('0')
 
   describe 'constrains:', ->
     it 'should work on resize event only ', ->
@@ -113,9 +115,8 @@ describe 'resizer', ->
       document.body.appendChild el
       scope = null
       el.addEventListener 'resize', (-> scope = @ ), false
-      waits(10); runs -> el.style.width = '201px'
-      waits(10); runs ->
-        expect(scope).toEqual(el)
+      waits(50); runs -> el.style.width = '201px'
+      waits(50); runs -> expect(scope).toEqual(el)
 
     #! test sould be strictly the last one
     it 'should reverse old listener or inteval on destroy', ->
