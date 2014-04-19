@@ -114,10 +114,10 @@
       clearInterval(this.interval);
       this.interval = null;
       window.anyResizeEventInited = false;
-      if (Element.prototype.addEventListener) {
-        return Element.prototype.addEventListener = this.listener;
-      } else if (Element.prototype.attachEvent) {
-        return Element.prototype.attachEvent = this.listener;
+      if (Node.prototype.addEventListener) {
+        return Node.prototype.addEventListener = this.listener;
+      } else if (Node.prototype.attachEvent) {
+        return Node.prototype.attachEvent = this.listener;
       }
     };
 

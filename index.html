@@ -13,15 +13,13 @@
     <script>
       test = document.querySelector('#js-test');
       console.log(test);
-      oldFun = Element.prototype.addEventListener;
+      oldFun = HTMLDivElement.prototype.addEventListener;
       fun = function(){
-       alert('aa')
-       oldFun.apply(this, arguments);
+       oldFun.apply(this, arguments)
       }
-      Element.prototype.addEventListener = oldFun;
-      console.log(test.addEventListener)
+      HTMLDivElement.prototype.addEventListener = oldFun;
       test.addEventListener('click', function(){
-       console.log('click');
+       console.log('click')
        });
        
       //- Element.addEventListener('click')

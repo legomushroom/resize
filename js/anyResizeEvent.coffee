@@ -55,7 +55,6 @@ class Main
       if isStatic or isEmpty
         el.style.position = 'relative'
       iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
-
     else @initTimer(el)
     el.anyResizeEventInited = true
 
@@ -85,10 +84,10 @@ class Main
     clearInterval @interval
     @interval = null
     window.anyResizeEventInited = false
-    if Element::addEventListener
-      Element::addEventListener = @listener
-    else if Element::attachEvent
-      Element::attachEvent = @listener
+    if Node::addEventListener
+      Node::addEventListener = @listener
+    else if Node::attachEvent
+      Node::attachEvent = @listener
 
 window.AnyResizeEvent = Main
 window.anyResizeEvent = new Main
