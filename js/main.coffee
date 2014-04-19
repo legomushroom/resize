@@ -2,7 +2,7 @@
 
 # node = document.getElementById 'js-test'
 # window.node = node
-# node.addEventListener 'resize', ((e)->
+# node.addEventListener 'onresize', ((e)->
 #   console.log('resize')
 #   console.log(@)
 #   # alert 'a'

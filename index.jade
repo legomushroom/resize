@@ -23,9 +23,21 @@ html
 		//- 	}
 
 		script.
-			console.log(Element.prototype);
-			console.log(Element.prototype);
+			test = document.querySelector('#js-test');
+			console.log(test);
+			oldFun = Element.prototype.addEventListener;
+			fun = function(){
+				alert('aa')
+				oldFun.apply(this, arguments);
+			}
+			Element.prototype.addEventListener = oldFun;
+			console.log(test.addEventListener)
+			test.addEventListener('click', function(){
+				console.log('click');
+				});
 
+			//- Element.addEventListener('click')
+			//- console.log(Element.prototype.addEventListener);
 		//- 	console.log(iframe.contentWindow)
 		//- 	console.log(a)
 
