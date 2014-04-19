@@ -7,10 +7,8 @@ html
 		link(rel="stylesheet", type="text/css", href="css/main.css")
 	
 	body
-		section(role="main")#main
-
-			div#js-test.test
-			//- p content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content 
+		table#js-test.test
+		//- p content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content 
 
 
 		//- iframe(id="js-test-iframe", name="a", style="width:100%; height: 100%; opacity: 0;")
@@ -22,17 +20,18 @@ html
 		//- 		console.log('a');
 		//- 	}
 
-		script.
-			test = document.querySelector('#js-test');
-			console.log(test);
-			oldFun = HTMLDivElement.prototype.addEventListener;
-			fun = function(){
-				oldFun.apply(this, arguments)
-			}
-			HTMLDivElement.prototype.addEventListener = oldFun;
-			test.addEventListener('click', function(){
-				console.log('click')
-				});
+		//- script.
+		//- 	test = document.querySelector('#js-test');
+		//- 	console.log(test);
+		//- 	oldFun = HTMLDivElement.prototype.addEventListener;
+		//- 	fun = function(){
+		//- 		console.log('redefine');
+		//- 		oldFun.apply(this, arguments)
+		//- 	}
+		//- 	HTMLDivElement.prototype.addEventListener = fun;
+		//- 	test.addEventListener('click', function(){
+		//- 		console.log('click')
+		//- 		});
 
 			//- Element.addEventListener('click')
 			//- console.log(Element.prototype.addEventListener);

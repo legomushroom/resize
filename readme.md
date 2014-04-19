@@ -27,6 +27,15 @@ testem
 ```
 You are all set.
 
+### Browsers' support
+It works just everywhere:
+Chrome  1+
+Firefox 1+
+IE 			4+
+SAFARI 	1+
+Opera 	4+
+
+
 ### License
 The MIT License (MIT)
 Copyright (c) 2014 Oleg Solomka(Legomushroom) legomushroom@gmail.com http://legomushroom.com 

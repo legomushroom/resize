@@ -1,39 +1,85 @@
 class Main
   constructor:(@o={})->
     return if window.anyResizeEventInited
-    window.anyResizeEventInited = true
+    @vars()
     @redefineProto()
-    @timerElements =
-      img:      1
-      textarea: 1
-      input:    1
-      embed:    1
-      svg:      1
-      canvas:   1
-      table:    1
-      tr:       1
-      tbody:    1
-      thead:    1
-      tfoot:    1
-      caption:  1
 
+  vars:->
+    window.anyResizeEventInited = true
+    @allowedProtos = [
+      HTMLDivElement,
+      HTMLFormElement,
+      HTMLLinkElement,
+      HTMLBodyElement,
+      HTMLParagraphElement,
+      HTMLFieldSetElement,
+      HTMLLegendElement,
+      HTMLLabelElement,
+      HTMLButtonElement,
+      HTMLUListElement,
+      HTMLOListElement,
+      HTMLLIElement,
+      HTMLParagraphElement,
+      HTMLHeadingElement,
+      HTMLQuoteElement,
+      HTMLPreElement,
+      HTMLBRElement,
+      HTMLFontElement,
+      HTMLHRElement,
+      HTMLModElement,
+      HTMLParamElement,
+      HTMLMapElement,
+      HTMLTableElement,
+      HTMLTableCaptionElement,
+      HTMLTableColElement,
+      HTMLTableSectionElement,
+      HTMLTableRowElement
+    ]
+    @timerElements =
+      img:        1
+      textarea:   1
+      input:      1
+      embed:      1
+      object:     1
+      svg:        1
+      canvas:     1
+      table:      1
+      tr:         1
+      tbody:      1
+      thead:      1
+      tfoot:      1
+      caption:    1
+      a:          1
+      select:     1
+      option:     1
+      optgroup:   1
+      dl:         1
+      dt:         1
+      br:         1
+      basefont:   1
+      font:       1
 
   redefineProto:->
     it = @
-    wrappedListener = ->
-      if @ isnt window or @ isnt document
-        arguments[0] is 'resize' and !@anyResizeEventInited and it.handleResize
-          args:arguments
-          that:@
-      it.listener.apply(@,arguments)
-    @listener = Element::addEventListener or Element::attachEvent
-    if Element::addEventListener
-      Element::addEventListener = wrappedListener
-    else if Element::attachEvent
-      Element::attachEvent = wrappedListener
+    for proto in @allowedProtos
+      do (proto)->
+        listener = proto::addEventListener or proto::attachEvent
+        do (listener)->
+          wrappedListener = ->
+            if @ isnt window or @ isnt document
+              option = arguments[0] is 'onresize' and !@anyResizeEventInited
+              option and it.handleResize
+                args:arguments
+                that:@
+            listener.apply(@,arguments)
+          if proto::addEventListener
+            proto::addEventListener = wrappedListener
+          else if proto::attachEvent
+            proto::attachEvent = wrappedListener
 
   handleResize:(args)->
     el = args.that
+    console.log el.tagName.toLowerCase()
     if !@timerElements[el.tagName.toLowerCase()]
       iframe = document.createElement 'iframe'
       el.appendChild iframe
@@ -44,7 +90,6 @@ class Main
       iframe.style.opacity    = 0
       iframe.style.top        = 0
       iframe.style.left       = 0
-      iframe.setAttribute 'name', 'a'
 
       computedStyle = if window.getComputedStyle
         getComputedStyle(el)
@@ -59,6 +104,7 @@ class Main
     el.anyResizeEventInited = true
 
   initTimer:(el)->
+    console.log 'a'
     width   = 0
     height  = 0
     @interval = setInterval =>
@@ -73,11 +119,11 @@ class Main
   dispatchEvent:(el)->
     if document.createEvent
       e = document.createEvent 'HTMLEvents'
-      e.initEvent 'resize', false, false
+      e.initEvent 'onresize', false, false
       el.dispatchEvent e
     else if document.createEventObject
       e = document.createEventObject()
-      el.fireEvent 'resize', e
+      el.fireEvent 'onresize', e
     else return false
 
   destroy:->
