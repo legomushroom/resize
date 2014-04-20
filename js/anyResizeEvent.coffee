@@ -36,7 +36,10 @@ class Main
       HTMLInputElement,
       HTMLTextAreaElement,
       HTMLAnchorElement,
-      HTMLObjectElement
+      HTMLObjectElement,
+      HTMLTableColElement,
+      HTMLTableSectionElement,
+      HTMLTableRowElement
     ]
     @timerElements =
       img:        1
@@ -69,7 +72,6 @@ class Main
       do (proto)->
         listener = proto::addEventListener or proto::attachEvent
         do (listener)->
-          console.log 'bb'
           wrappedListener = ->
             if @ isnt window or @ isnt document
               option = arguments[0] is 'onresize' and !@anyResizeEventInited
@@ -77,7 +79,6 @@ class Main
                 args:arguments
                 that:@
             listener.apply(@,arguments)
-          console.log proto::addEventListener
           if proto::addEventListener
             proto::addEventListener = wrappedListener
           else if proto::attachEvent
@@ -109,7 +110,6 @@ class Main
     el.anyResizeEventInited = true
 
   initTimer:(el)->
-    console.log 'a'
     width   = 0
     height  = 0
     @interval = setInterval =>

@@ -13,7 +13,7 @@
 
     Main.prototype.vars = function() {
       window.anyResizeEventInited = true;
-      this.allowedProtos = [HTMLDivElement, HTMLFormElement, HTMLLinkElement, HTMLBodyElement, HTMLParagraphElement, HTMLFieldSetElement, HTMLLegendElement, HTMLLabelElement, HTMLButtonElement, HTMLUListElement, HTMLOListElement, HTMLLIElement, HTMLHeadingElement, HTMLQuoteElement, HTMLPreElement, HTMLBRElement, HTMLFontElement, HTMLHRElement, HTMLModElement, HTMLParamElement, HTMLMapElement, HTMLTableElement, HTMLTableCaptionElement, HTMLImageElement, HTMLTableCellElement, HTMLSelectElement, HTMLInputElement, HTMLTextAreaElement, HTMLAnchorElement, HTMLObjectElement];
+      this.allowedProtos = [HTMLDivElement, HTMLFormElement, HTMLLinkElement, HTMLBodyElement, HTMLParagraphElement, HTMLFieldSetElement, HTMLLegendElement, HTMLLabelElement, HTMLButtonElement, HTMLUListElement, HTMLOListElement, HTMLLIElement, HTMLHeadingElement, HTMLQuoteElement, HTMLPreElement, HTMLBRElement, HTMLFontElement, HTMLHRElement, HTMLModElement, HTMLParamElement, HTMLMapElement, HTMLTableElement, HTMLTableCaptionElement, HTMLImageElement, HTMLTableCellElement, HTMLSelectElement, HTMLInputElement, HTMLTextAreaElement, HTMLAnchorElement, HTMLObjectElement, HTMLTableColElement, HTMLTableSectionElement, HTMLTableRowElement];
       return this.timerElements = {
         img: 1,
         textarea: 1,
@@ -55,7 +55,6 @@
           listener = proto.prototype.addEventListener || proto.prototype.attachEvent;
           return (function(listener) {
             var wrappedListener;
-            console.log('bb');
             wrappedListener = function() {
               var option;
               if (this !== window || this !== document) {
@@ -67,7 +66,6 @@
               }
               return listener.apply(this, arguments);
             };
-            console.log(proto.prototype.addEventListener);
             if (proto.prototype.addEventListener) {
               return proto.prototype.addEventListener = wrappedListener;
             } else if (proto.prototype.attachEvent) {
@@ -113,7 +111,6 @@
 
     Main.prototype.initTimer = function(el) {
       var height, width;
-      console.log('a');
       width = 0;
       height = 0;
       return this.interval = setInterval((function(_this) {
