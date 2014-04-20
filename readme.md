@@ -4,7 +4,7 @@ Adds resize event to any html element. It is tiny (about 800 bytes min + gzip) a
 
 ### Usage
 
-Just link source file in your html. Add 'resize' event listener to any element as usual. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
+Just link source file in your html. Add 'onresize' event listener to any element as usual. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
 
 ###Contibuting
 
@@ -29,10 +29,15 @@ You are all set.
 
 ### Browsers' support
 It works just everywhere:
+<br/>
 Chrome  1+
+<br/>
 Firefox 1+
+<br/>
 IE 			4+
+<br/>
 SAFARI 	1+
+<br/>
 Opera 	4+
 
 
