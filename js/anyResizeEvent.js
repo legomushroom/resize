@@ -13,7 +13,7 @@
 
     Main.prototype.vars = function() {
       window.anyResizeEventInited = true;
-      this.allowedProtos = [HTMLDivElement, HTMLFormElement, HTMLLinkElement, HTMLBodyElement, HTMLParagraphElement, HTMLFieldSetElement, HTMLLegendElement, HTMLLabelElement, HTMLButtonElement, HTMLUListElement, HTMLOListElement, HTMLLIElement, HTMLParagraphElement, HTMLHeadingElement, HTMLQuoteElement, HTMLPreElement, HTMLBRElement, HTMLFontElement, HTMLHRElement, HTMLModElement, HTMLParamElement, HTMLMapElement, HTMLTableElement, HTMLTableCaptionElement, HTMLTableColElement, HTMLTableSectionElement, HTMLTableRowElement];
+      this.allowedProtos = [HTMLDivElement, HTMLFormElement, HTMLLinkElement, HTMLBodyElement, HTMLParagraphElement, HTMLFieldSetElement, HTMLLegendElement, HTMLLabelElement, HTMLButtonElement, HTMLUListElement, HTMLOListElement, HTMLLIElement, HTMLHeadingElement, HTMLQuoteElement, HTMLPreElement, HTMLBRElement, HTMLFontElement, HTMLHRElement, HTMLModElement, HTMLParamElement, HTMLMapElement, HTMLTableElement, HTMLTableCaptionElement, HTMLImageElement, HTMLTableCellElement, HTMLSelectElement, HTMLInputElement, HTMLTextAreaElement, HTMLAnchorElement, HTMLObjectElement];
       return this.timerElements = {
         img: 1,
         textarea: 1,
@@ -22,12 +22,10 @@
         object: 1,
         svg: 1,
         canvas: 1,
-        table: 1,
         tr: 1,
         tbody: 1,
         thead: 1,
         tfoot: 1,
-        caption: 1,
         a: 1,
         select: 1,
         option: 1,
@@ -36,22 +34,28 @@
         dt: 1,
         br: 1,
         basefont: 1,
-        font: 1
+        font: 1,
+        col: 1,
+        iframe: 1
       };
     };
 
     Main.prototype.redefineProto = function() {
-      var it, proto, _i, _len, _ref, _results;
+      var i, it, proto, _i, _len, _ref, _results;
       it = this;
       _ref = this.allowedProtos;
       _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        proto = _ref[_i];
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        proto = _ref[i];
+        if (proto.prototype == null) {
+          continue;
+        }
         _results.push((function(proto) {
           var listener;
           listener = proto.prototype.addEventListener || proto.prototype.attachEvent;
           return (function(listener) {
             var wrappedListener;
+            console.log('bb');
             wrappedListener = function() {
               var option;
               if (this !== window || this !== document) {
@@ -63,6 +67,7 @@
               }
               return listener.apply(this, arguments);
             };
+            console.log(proto.prototype.addEventListener);
             if (proto.prototype.addEventListener) {
               return proto.prototype.addEventListener = wrappedListener;
             } else if (proto.prototype.attachEvent) {
@@ -77,7 +82,6 @@
     Main.prototype.handleResize = function(args) {
       var computedStyle, el, iframe, isEmpty, isStatic, _ref;
       el = args.that;
-      console.log(el.tagName.toLowerCase());
       if (!this.timerElements[el.tagName.toLowerCase()]) {
         iframe = document.createElement('iframe');
         el.appendChild(iframe);
@@ -123,7 +127,7 @@
             return height = newHeight;
           }
         };
-      })(this), this.o.interval || 500);
+      })(this), this.o.interval || 200);
     };
 
     Main.prototype.dispatchEvent = function(el) {

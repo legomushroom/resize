@@ -19,7 +19,6 @@ class Main
       HTMLUListElement,
       HTMLOListElement,
       HTMLLIElement,
-      HTMLParagraphElement,
       HTMLHeadingElement,
       HTMLQuoteElement,
       HTMLPreElement,
@@ -31,9 +30,13 @@ class Main
       HTMLMapElement,
       HTMLTableElement,
       HTMLTableCaptionElement,
-      HTMLTableColElement,
-      HTMLTableSectionElement,
-      HTMLTableRowElement
+      HTMLImageElement,
+      HTMLTableCellElement,
+      HTMLSelectElement,
+      HTMLInputElement,
+      HTMLTextAreaElement,
+      HTMLAnchorElement,
+      HTMLObjectElement
     ]
     @timerElements =
       img:        1
@@ -43,12 +46,10 @@ class Main
       object:     1
       svg:        1
       canvas:     1
-      table:      1
       tr:         1
       tbody:      1
       thead:      1
       tfoot:      1
-      caption:    1
       a:          1
       select:     1
       option:     1
@@ -58,13 +59,17 @@ class Main
       br:         1
       basefont:   1
       font:       1
+      col:        1
+      iframe:     1
 
   redefineProto:->
     it = @
-    for proto in @allowedProtos
+    for proto, i in @allowedProtos
+      if !proto::? then continue
       do (proto)->
         listener = proto::addEventListener or proto::attachEvent
         do (listener)->
+          console.log 'bb'
           wrappedListener = ->
             if @ isnt window or @ isnt document
               option = arguments[0] is 'onresize' and !@anyResizeEventInited
@@ -72,6 +77,7 @@ class Main
                 args:arguments
                 that:@
             listener.apply(@,arguments)
+          console.log proto::addEventListener
           if proto::addEventListener
             proto::addEventListener = wrappedListener
           else if proto::attachEvent
@@ -79,7 +85,6 @@ class Main
 
   handleResize:(args)->
     el = args.that
-    console.log el.tagName.toLowerCase()
     if !@timerElements[el.tagName.toLowerCase()]
       iframe = document.createElement 'iframe'
       el.appendChild iframe
@@ -114,7 +119,7 @@ class Main
         @dispatchEvent el
         width  = newWidth
         height = newHeight
-    , @o.interval or 500
+    , @o.interval or 200
 
   dispatchEvent:(el)->
     if document.createEvent
