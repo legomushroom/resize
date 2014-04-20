@@ -20,7 +20,7 @@ launch gulp:
 gulp
 ```
 ### Tests
-Please test your code. Uses [testem](https://github.com/airportyh/testem) as tests runner and [jasmine](http://jasmine.github.io/) as test framework.
+Please test your code. [Testem](https://github.com/airportyh/testem) as tests runner and [jasmine](http://jasmine.github.io/) as testing framework.
 Launch testem:
 ```sh
 testem
