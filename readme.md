@@ -36,7 +36,7 @@ Firefox 1+
 <br/>
 IE 			4+
 <br/>
-SAFARI 	1+
+Safari 	1+
 <br/>
 Opera 	4+
 
