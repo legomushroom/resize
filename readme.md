@@ -1,14 +1,14 @@
-Any HTML Eelement Resize Event
+Any HTML Element Resize Event
 ================
-Adds resize event to any html element. It is tiny (about 800 bytes min + gzip) and dependency free.
+Adds resize event to any html element(without timer). It is tiny (about 800 bytes min + gzip) and dependency free.
 
 ### Usage
 
-Just link source file in your html. Add 'onresize' event listener to any element as usual. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
+Just link source file in your html. Add 'onresize' event listener to any element as you usually do. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
 
 ###Contibuting
 
-Pull request is way to go. Uses coffeescript as js preprocessor so expecting changes in any-resize-event.coffee file.
+Pull request is way to go. Uses coffeescript as js preprocessor so I'm expecting changes in any-resize-event.coffee file.
 
 ### Evniroment
 Uses [gulp](http://gulpjs.com/) as task runner.
