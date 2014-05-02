@@ -4,13 +4,13 @@ Adds resize event to any html element(without timer). It is tiny (about 800 byte
 
 ### Usage
 
-Just link source file in your html. Add 'onresize' event listener to any element as you usually do. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
+Just link source file in your html. Add **onresize** event listener to any element as you usually do. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
 
 ###Contibuting
 
-Pull request is way to go. Uses coffeescript as js preprocessor so I'm expecting changes in any-resize-event.coffee file.
+Pull request is way to go. Uses coffeescript as js preprocessor so I'm expecting changes in **any-resize-event.coffee** file.
 
-### Evniroment
+### Environment
 Uses [gulp](http://gulpjs.com/) as task runner.
 ```sh
 [sudo] npm istall
