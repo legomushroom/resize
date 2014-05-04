@@ -1,6 +1,8 @@
 Any HTML Element Resize Event
 ================
-Adds resize event to any html element(without timer). It is tiny (about 800 bytes min + gzip) and dependency free.
+Adds **onresize** event to any html element(without timer*). It is tiny (about 800 bytes min + gzip) and dependency free.
+
+_*timer is used as a fallback for elements that can not have child nodes(images, inputs etc)_
 
 ### Usage
 
