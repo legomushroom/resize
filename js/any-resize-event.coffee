@@ -1,3 +1,5 @@
+#! Legomushroom 2014 MIT
+
 class Main
   constructor:(@o={})->
     return if window.anyResizeEventInited
@@ -140,5 +142,10 @@ class Main
     else if Node::attachEvent
       Node::attachEvent = @listener
 
-window.AnyResizeEvent = Main
-window.anyResizeEvent = new Main
+if (typeof define is "function") and define.amd
+  define "any-resize-event", [], -> new Main
+else if (typeof module is "object") and (typeof module.exports is "object")
+  module.exports = new Main
+else
+  window?.AnyResizeEvent = Main
+  window?.anyResizeEvent = new Main

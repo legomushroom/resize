@@ -20,7 +20,7 @@ var distFolder  = '';
 var paths = {
 	src: {
 		js:  			devFolder + 'js/**/*.coffee',
-		mainJs:  	devFolder + 'js/anyResizeEvent.js',
+		mainJs:  	devFolder + 'js/any-resize-event.js',
 		css: 			devFolder + 'css/**/*.styl',
 		kit: 			devFolder + 'css/kit.jade',
 		index: 		devFolder + 'index.jade',
@@ -57,10 +57,12 @@ gulp.task('coffee', function(e){
 		.pipe(coffee())
 		.pipe(gulp.dest(paths.dist.js))
 		.pipe(livereload())
+});
 
-	// return gulp.src(paths.src.mainJs)
-	// 				.pipe(uglify())
-	// 				.pipe(gulp.dest(paths.dist.js))
+gulp.task('build', function() {
+	return gulp.src(paths.src.mainJs)
+		.pipe(uglify())
+		.pipe(gulp.dest('dist/'))
 });
 
 gulp.task('coffee:tests', function(e){
