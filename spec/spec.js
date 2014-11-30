@@ -152,16 +152,14 @@
           return expect(scope).toEqual(el);
         });
       });
-      return it('should reverse old listener or inteval on destroy', function() {
-        var el, isInterval, isListener;
+      return it('should reverse old listener on destroy', function() {
+        var el, isListener;
         main = new window.AnyResizeEvent;
         el = document.createElement('div');
         el.addEventListener('onresize', (function() {}), false);
         document.body.appendChild(el);
-        main.destroy();
-        isListener = Element.prototype.addEventListener === beforeListener;
-        isInterval = main.interval;
-        return expect(isListener || !isInterval).toBe(true);
+        isListener = Element.prototype.addEventListener === el.addEventListener;
+        return expect(isListener).toBe(true);
       });
     });
   });

@@ -90,6 +90,16 @@ class Main
           else if proto::attachEvent
             proto::attachEvent = wrappedListener
 
+        remover = proto::removeEventListener or proto::detachEvent
+        do (remover)->
+          wrappedRemover = ->
+            @anyResizeEventInited = false
+            remover.apply(@,arguments)
+          if proto::removeEventListener
+            proto::removeEventListener = wrappedRemover
+          else if proto::detachEvent
+            proto::detachEvent = wrappedListener
+
   handleResize:(args)->
     el = args.that
     if !@timerElements[el.tagName.toLowerCase()]
