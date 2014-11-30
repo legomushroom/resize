@@ -126,6 +126,15 @@
         document.body.appendChild(el);
         return expect(el.children.length).toBe(1);
       });
+      it('should removeEventListener', function() {
+        var el, fun;
+        el = document.createElement('div');
+        fun = function() {};
+        el.addEventListener('onresize', fun, false);
+        el.removeEventListener('onresize', fun, false);
+        document.body.appendChild(el);
+        return expect(el.anyResizeEventInited).toBe(false);
+      });
       it('should have node\'s scope', function() {
         var el, scope;
         el = document.createElement('div');

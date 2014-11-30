@@ -106,6 +106,14 @@ describe 'resizer', ->
       document.body.appendChild el
       expect(el.children.length).toBe(1)
 
+    it 'should removeEventListener', ->
+      el = document.createElement 'div'
+      fun = ->
+      el.addEventListener 'onresize', fun, false
+      el.removeEventListener 'onresize', fun, false
+      document.body.appendChild el
+      expect(el.anyResizeEventInited).toBe(false)
+
     it 'should have node\'s scope' , ->
       el = document.createElement 'div'
       document.body.appendChild el
