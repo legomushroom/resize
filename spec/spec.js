@@ -15,6 +15,16 @@
         isNormalBrowser = !!document.createEvent && !!document.dispatchEvent;
         return expect(isIE || isNormalBrowser).toBe(true);
       });
+      it('should have a addEventListener or attachEvent', function() {
+        var div;
+        div = document.createElement('div');
+        return expect(div.addEventListener || div.attachEvent).toBeTruthy();
+      });
+      it('should have a removeEventListener or detachEvent', function() {
+        var div;
+        div = document.createElement('div');
+        return expect(div.removeEventListener || div.detachEvent).toBeTruthy();
+      });
       it('should have a computedStyle functionality', function() {
         var el;
         el = document.createElement('div');
@@ -34,7 +44,7 @@
         el = document.createElement('div');
         document.body.appendChild(el);
         el.addEventListener('onresize', (function() {}), false);
-        return expect(el.hasChildNodes).toBeTruthy();
+        return expect(el.hasChildNodes()).toBe(true);
       });
       it('should have an access to iframe window', function() {
         var el, iframe;

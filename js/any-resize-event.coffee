@@ -1,4 +1,8 @@
 #! Legomushroom 2014 MIT
+# TODO
+#   fix removeEventListener
+#     set anyResizeEventInited to false and rename the variable
+#   add license comments
 
 class Main
   constructor:(@o={})->

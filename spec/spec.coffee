@@ -12,6 +12,14 @@ describe 'resizer', ->
       isNormalBrowser = !!document.createEvent and !!document.dispatchEvent
       expect(isIE or isNormalBrowser).toBe(true)
 
+    it 'should have a addEventListener or attachEvent', ->
+      div = document.createElement 'div'
+      expect(div.addEventListener or div.attachEvent).toBeTruthy()
+
+    it 'should have a removeEventListener or detachEvent', ->
+      div = document.createElement 'div'
+      expect(div.removeEventListener or div.detachEvent).toBeTruthy()
+
     it 'should have a computedStyle functionality', ->
       el = document.createElement 'div'
       expect(window.getComputedStyle or el.currentStyle).toBeDefined()
@@ -27,11 +35,7 @@ describe 'resizer', ->
       el = document.createElement 'div'
       document.body.appendChild el
       el.addEventListener 'onresize', (->), false
-      # console.log el.children.length
-      # console.log el.children.length
-      # console.log el.children.length
-      # console.log el.firstElementChild
-      expect(el.hasChildNodes).toBeTruthy()
+      expect(el.hasChildNodes()).toBe(true)
 
     it 'should have an access to iframe window', ->
       el = document.createElement 'div'
