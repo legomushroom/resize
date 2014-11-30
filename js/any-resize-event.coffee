@@ -1,17 +1,15 @@
 #! Legomushroom 2014 MIT
 # TODO
-#   fix removeEventListener
-#     set anyResizeEventInited to false and rename the variable
 #   add license comments
 
 class Main
   constructor:(@o={})->
-    return if window.anyResizeEventInited
+    return if window.isAnyResizeEventInited
     @vars()
     @redefineProto()
 
   vars:->
-    window.anyResizeEventInited = true
+    window.isAnyResizeEventInited = true
     @allowedProtos = [
       HTMLDivElement,
       HTMLFormElement,
@@ -73,14 +71,14 @@ class Main
 
   redefineProto:->
     it = @
-    for proto, i in @allowedProtos
+    t = for proto, i in @allowedProtos
       if !proto::? then continue
       do (proto)->
         listener = proto::addEventListener or proto::attachEvent
         do (listener)->
           wrappedListener = ->
             if @ isnt window or @ isnt document
-              option = arguments[0] is 'onresize' and !@anyResizeEventInited
+              option = arguments[0] is 'onresize' and !@isAnyResizeEventInited
               option and it.handleResize
                 args:arguments
                 that:@
@@ -93,7 +91,7 @@ class Main
         remover = proto::removeEventListener or proto::detachEvent
         do (remover)->
           wrappedRemover = ->
-            @anyResizeEventInited = false
+            @isAnyResizeEventInited = false
             remover.apply(@,arguments)
           if proto::removeEventListener
             proto::removeEventListener = wrappedRemover
@@ -123,7 +121,7 @@ class Main
         el.style.position = 'relative'
       iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
     else @initTimer(el)
-    el.anyResizeEventInited = true
+    el.isAnyResizeEventInited = true
 
   initTimer:(el)->
     width   = 0
@@ -150,11 +148,22 @@ class Main
   destroy:->
     clearInterval @interval
     @interval = null
-    window.anyResizeEventInited = false
-    if Node::addEventListener
-      Node::addEventListener = @listener
-    else if Node::attachEvent
-      Node::attachEvent = @listener
+    window.isAnyResizeEventInited = false
+
+    it = @
+    for proto, i in @allowedProtos
+      if !proto::? then continue
+      do (proto)->
+        listener = proto::addEventListener or proto::attachEvent
+        if proto::addEventListener
+          proto::addEventListener = Element::addEventListener
+        else if proto::attachEvent
+          proto::attachEvent = Element::attachEvent
+
+        if proto::removeEventListener
+          proto::removeEventListener = Element::removeEventListener
+        else if proto::detachEvent
+          proto::detachEvent = Element::detachEvent
 
 if (typeof define is "function") and define.amd
   define "any-resize-event", [], -> new Main

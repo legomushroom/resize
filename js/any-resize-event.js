@@ -4,7 +4,7 @@
   Main = (function() {
     function Main(o) {
       this.o = o != null ? o : {};
-      if (window.anyResizeEventInited) {
+      if (window.isAnyResizeEventInited) {
         return;
       }
       this.vars();
@@ -12,7 +12,7 @@
     }
 
     Main.prototype.vars = function() {
-      window.anyResizeEventInited = true;
+      window.isAnyResizeEventInited = true;
       this.allowedProtos = [HTMLDivElement, HTMLFormElement, HTMLLinkElement, HTMLBodyElement, HTMLParagraphElement, HTMLFieldSetElement, HTMLLegendElement, HTMLLabelElement, HTMLButtonElement, HTMLUListElement, HTMLOListElement, HTMLLIElement, HTMLHeadingElement, HTMLQuoteElement, HTMLPreElement, HTMLBRElement, HTMLFontElement, HTMLHRElement, HTMLModElement, HTMLParamElement, HTMLMapElement, HTMLTableElement, HTMLTableCaptionElement, HTMLImageElement, HTMLTableCellElement, HTMLSelectElement, HTMLInputElement, HTMLTextAreaElement, HTMLAnchorElement, HTMLObjectElement, HTMLTableColElement, HTMLTableSectionElement, HTMLTableRowElement];
       return this.timerElements = {
         img: 1,
@@ -41,53 +41,56 @@
     };
 
     Main.prototype.redefineProto = function() {
-      var i, it, proto, _i, _len, _ref, _results;
+      var i, it, proto, t;
       it = this;
-      _ref = this.allowedProtos;
-      _results = [];
-      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
-        proto = _ref[i];
-        if (proto.prototype == null) {
-          continue;
-        }
-        _results.push((function(proto) {
-          var listener, remover;
-          listener = proto.prototype.addEventListener || proto.prototype.attachEvent;
-          (function(listener) {
-            var wrappedListener;
-            wrappedListener = function() {
-              var option;
-              if (this !== window || this !== document) {
-                option = arguments[0] === 'onresize' && !this.anyResizeEventInited;
-                option && it.handleResize({
-                  args: arguments,
-                  that: this
-                });
+      return t = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.allowedProtos;
+        _results = [];
+        for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+          proto = _ref[i];
+          if (proto.prototype == null) {
+            continue;
+          }
+          _results.push((function(proto) {
+            var listener, remover;
+            listener = proto.prototype.addEventListener || proto.prototype.attachEvent;
+            (function(listener) {
+              var wrappedListener;
+              wrappedListener = function() {
+                var option;
+                if (this !== window || this !== document) {
+                  option = arguments[0] === 'onresize' && !this.isAnyResizeEventInited;
+                  option && it.handleResize({
+                    args: arguments,
+                    that: this
+                  });
+                }
+                return listener.apply(this, arguments);
+              };
+              if (proto.prototype.addEventListener) {
+                return proto.prototype.addEventListener = wrappedListener;
+              } else if (proto.prototype.attachEvent) {
+                return proto.prototype.attachEvent = wrappedListener;
               }
-              return listener.apply(this, arguments);
-            };
-            if (proto.prototype.addEventListener) {
-              return proto.prototype.addEventListener = wrappedListener;
-            } else if (proto.prototype.attachEvent) {
-              return proto.prototype.attachEvent = wrappedListener;
-            }
-          })(listener);
-          remover = proto.prototype.removeEventListener || proto.prototype.detachEvent;
-          return (function(remover) {
-            var wrappedRemover;
-            wrappedRemover = function() {
-              this.anyResizeEventInited = false;
-              return remover.apply(this, arguments);
-            };
-            if (proto.prototype.removeEventListener) {
-              return proto.prototype.removeEventListener = wrappedRemover;
-            } else if (proto.prototype.detachEvent) {
-              return proto.prototype.detachEvent = wrappedListener;
-            }
-          })(remover);
-        })(proto));
-      }
-      return _results;
+            })(listener);
+            remover = proto.prototype.removeEventListener || proto.prototype.detachEvent;
+            return (function(remover) {
+              var wrappedRemover;
+              wrappedRemover = function() {
+                this.isAnyResizeEventInited = false;
+                return remover.apply(this, arguments);
+              };
+              if (proto.prototype.removeEventListener) {
+                return proto.prototype.removeEventListener = wrappedRemover;
+              } else if (proto.prototype.detachEvent) {
+                return proto.prototype.detachEvent = wrappedListener;
+              }
+            })(remover);
+          })(proto));
+        }
+        return _results;
+      }).call(this);
     };
 
     Main.prototype.handleResize = function(args) {
@@ -119,7 +122,7 @@
       } else {
         this.initTimer(el);
       }
-      return el.anyResizeEventInited = true;
+      return el.isAnyResizeEventInited = true;
     };
 
     Main.prototype.initTimer = function(el) {
@@ -155,14 +158,34 @@
     };
 
     Main.prototype.destroy = function() {
+      var i, it, proto, _i, _len, _ref, _results;
       clearInterval(this.interval);
       this.interval = null;
-      window.anyResizeEventInited = false;
-      if (Node.prototype.addEventListener) {
-        return Node.prototype.addEventListener = this.listener;
-      } else if (Node.prototype.attachEvent) {
-        return Node.prototype.attachEvent = this.listener;
+      window.isAnyResizeEventInited = false;
+      it = this;
+      _ref = this.allowedProtos;
+      _results = [];
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        proto = _ref[i];
+        if (proto.prototype == null) {
+          continue;
+        }
+        _results.push((function(proto) {
+          var listener;
+          listener = proto.prototype.addEventListener || proto.prototype.attachEvent;
+          if (proto.prototype.addEventListener) {
+            proto.prototype.addEventListener = Element.prototype.addEventListener;
+          } else if (proto.prototype.attachEvent) {
+            proto.prototype.attachEvent = Element.prototype.attachEvent;
+          }
+          if (proto.prototype.removeEventListener) {
+            return proto.prototype.removeEventListener = Element.prototype.removeEventListener;
+          } else if (proto.prototype.detachEvent) {
+            return proto.prototype.detachEvent = Element.prototype.detachEvent;
+          }
+        })(proto));
       }
+      return _results;
     };
 
     return Main;

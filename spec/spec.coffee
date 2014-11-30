@@ -1,5 +1,5 @@
 describe 'resizer', ->
-  window.anyResizeEvent.destroy()
+  # window.anyResizeEvent.destroy()
   main = null
   beforeListener = null
   describe 'enviroment', ->
@@ -112,7 +112,7 @@ describe 'resizer', ->
       el.addEventListener 'onresize', fun, false
       el.removeEventListener 'onresize', fun, false
       document.body.appendChild el
-      expect(el.anyResizeEventInited).toBe(false)
+      expect(el.isAnyResizeEventInited).toBe(false)
 
     it 'should have node\'s scope' , ->
       el = document.createElement 'div'
@@ -122,16 +122,13 @@ describe 'resizer', ->
       waits(50); runs -> el.style.width = '201px'
       waits(50); runs -> expect(scope).toEqual(el)
 
-    #! test sould be strictly the last one
     it 'should reverse old listener on destroy', ->
+      window.anyResizeEvent.destroy()
       main = new window.AnyResizeEvent
       el = document.createElement 'div'
       el.addEventListener 'onresize', (->), false
-      document.body.appendChild el
-      # main.destroy()
-      isListener = (Element::addEventListener is el.addEventListener)
-      # isInterval = main.interval
-      expect(isListener).toBe(true)
+      main.destroy()
+      expect(HTMLDivElement::addEventListener).toBe(Element::addEventListener)
 
 
 

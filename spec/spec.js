@@ -1,7 +1,6 @@
 (function() {
   describe('resizer', function() {
     var beforeListener, main;
-    window.anyResizeEvent.destroy();
     main = null;
     beforeListener = null;
     describe('enviroment', function() {
@@ -133,7 +132,7 @@
         el.addEventListener('onresize', fun, false);
         el.removeEventListener('onresize', fun, false);
         document.body.appendChild(el);
-        return expect(el.anyResizeEventInited).toBe(false);
+        return expect(el.isAnyResizeEventInited).toBe(false);
       });
       it('should have node\'s scope', function() {
         var el, scope;
@@ -153,13 +152,13 @@
         });
       });
       return it('should reverse old listener on destroy', function() {
-        var el, isListener;
+        var el;
+        window.anyResizeEvent.destroy();
         main = new window.AnyResizeEvent;
         el = document.createElement('div');
         el.addEventListener('onresize', (function() {}), false);
-        document.body.appendChild(el);
-        isListener = Element.prototype.addEventListener === el.addEventListener;
-        return expect(isListener).toBe(true);
+        main.destroy();
+        return expect(HTMLDivElement.prototype.addEventListener).toBe(Element.prototype.addEventListener);
       });
     });
   });
