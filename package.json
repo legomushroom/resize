@@ -8,10 +8,13 @@
     "url": "http://legomushroom.com"
   },
   "private": false,
+  "scripts": {
+    "test": "testem"
+  },
   "dependencies": {},
   "devDependencies": {
     "nodemon": "*",
-    "gulp": "~3.5.2",
+    "gulp": "latest",
     "gulp-minify-css": "~0.3.0",
     "gulp-stylus": "0.0.12",
     "gulp-autoprefixer": "0.0.6",
