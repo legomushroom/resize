@@ -1,6 +1,20 @@
 (function() {
   describe('resizer', function() {
-    var beforeListener, main;
+    var addEvent, beforeListener, main, removeEvent;
+    addEvent = function(el, type, handler) {
+      if (el.addEventListener) {
+        return el.addEventListener(type, handler, false);
+      } else if (el.attachEvent) {
+        return el.attachEvent(type, handler, false);
+      }
+    };
+    removeEvent = function(el, type, handler) {
+      if (el.removeEventListener) {
+        return el.removeEventListener(type, handler, false);
+      } else if (el.detachEvent) {
+        return el.detachEvent(type, handler, false);
+      }
+    };
     main = null;
     beforeListener = null;
     describe('enviroment', function() {
@@ -29,12 +43,17 @@
         el = document.createElement('div');
         return expect(window.getComputedStyle || el.currentStyle).toBeDefined();
       });
-      return it('should have size detection functionality', function() {
+      it('should have size detection functionality', function() {
         var el;
         el = document.createElement('div');
         document.body.appendChild(el);
         expect(el.offsetWidth).toBeDefined();
         return expect(el.offsetHeight).toBeDefined();
+      });
+      return it('should have size detection functionality', function() {
+        var el;
+        el = document.createElement('div');
+        return expect(typeof el.appendChild === 'function').toBe(true);
       });
     });
     describe('DOM:', function() {
@@ -42,13 +61,13 @@
         var el;
         el = document.createElement('div');
         document.body.appendChild(el);
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         return expect(el.hasChildNodes()).toBe(true);
       });
       it('should have an access to iframe window', function() {
         var el, iframe;
         el = document.createElement('div');
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         iframe = el.children[0];
         document.body.appendChild(el);
         return expect(iframe.contentWindow).toBeDefined();
@@ -57,7 +76,7 @@
         var el, iframe;
         el = document.createElement('div');
         document.body.appendChild(el);
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         iframe = el.children[0];
         waits(2);
         return runs(function() {
@@ -67,27 +86,27 @@
       it('should add position: relative style to static element', function() {
         var el;
         el = document.createElement('div');
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         return expect(el.style.position).toBe('relative');
       });
       it('should not alter absolute position style', function() {
         var el;
         el = document.createElement('div');
         el.style.position = 'absolute';
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         return expect(el.style.position).toBe('absolute');
       });
       it('should not alter fixed position style', function() {
         var el;
         el = document.createElement('div');
         el.style.position = 'fixed';
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         return expect(el.style.position).toBe('fixed');
       });
       return it('iframe should have right styles', function() {
         var el, iframe;
         el = document.createElement('div');
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         iframe = el.children[0];
         expect(iframe.style.position).toBe('absolute');
         expect(iframe.style.width).toBe('100%');
@@ -102,7 +121,7 @@
       it('should work on resize event only ', function() {
         var el, iframe;
         el = document.createElement('div');
-        el.addEventListener('click', (function() {}), false);
+        addEvent(el, 'click', (function() {}));
         iframe = el.children[0];
         document.body.appendChild(el);
         return expect(el.children.length).toBe(0);
@@ -111,7 +130,7 @@
         var el, iframe;
         new window.AnyResizeEvent;
         el = document.createElement('div');
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         iframe = el.children[0];
         document.body.appendChild(el);
         return expect(el.children.length).toBe(1);
@@ -119,8 +138,8 @@
       it('should add only one listener', function() {
         var el, iframe;
         el = document.createElement('div');
-        el.addEventListener('onresize', (function() {}), false);
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
+        addEvent(el, 'onresize', (function() {}));
         iframe = el.children[0];
         document.body.appendChild(el);
         return expect(el.children.length).toBe(1);
@@ -129,24 +148,43 @@
         var el, fun;
         el = document.createElement('div');
         fun = function() {};
-        el.addEventListener('onresize', fun, false);
-        el.removeEventListener('onresize', fun, false);
+        addEvent(el, 'onresize', fun);
+        removeEvent(el, 'onresize', fun);
         document.body.appendChild(el);
         return expect(el.isAnyResizeEventInited).toBe(false);
+      });
+      it('should remove iframe after removeEventListener', function() {
+        var el, fun;
+        el = document.createElement('div');
+        fun = function() {};
+        addEvent(el, 'onresize', fun);
+        removeEvent(el, 'onresize', fun);
+        document.body.appendChild(el);
+        return expect(el.hasChildNodes()).toBe(false);
+      });
+      it('should fail when removeEvent was called before addEvent', function() {
+        var e, el, fun, isError;
+        el = document.createElement('div');
+        isError = false;
+        fun = function() {};
+        try {
+          removeEvent(el, 'onresize', fun);
+        } catch (_error) {
+          e = _error;
+          isError = true;
+        }
+        return expect(isError).toBe(false);
       });
       it('should have node\'s scope', function() {
         var el, scope;
         el = document.createElement('div');
         document.body.appendChild(el);
         scope = null;
-        el.addEventListener('onresize', (function() {
+        addEvent(el, 'onresize', (function() {
           return scope = this;
-        }), false);
-        waits(50);
-        runs(function() {
-          return el.style.width = '201px';
-        });
-        waits(50);
+        }));
+        el.style.width = '201px';
+        waits(250);
         return runs(function() {
           return expect(scope).toEqual(el);
         });
@@ -156,7 +194,7 @@
         window.anyResizeEvent.destroy();
         main = new window.AnyResizeEvent;
         el = document.createElement('div');
-        el.addEventListener('onresize', (function() {}), false);
+        addEvent(el, 'onresize', (function() {}));
         main.destroy();
         return expect(HTMLDivElement.prototype.addEventListener).toBe(Element.prototype.addEventListener);
       });

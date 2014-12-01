@@ -61,7 +61,7 @@ gulp.task('coffee', function(e){
 
 gulp.task('build', function() {
 	return gulp.src(paths.src.mainJs)
-		.pipe(uglify())
+		.pipe(uglify({ preserveComments: 'some' }))
 		.pipe(gulp.dest('dist/'))
 });
 
@@ -95,12 +95,10 @@ gulp.task('default', function(){
 
 	gulp.watch(paths.src.css, function(e){
 		gulp.run('stylus');
-		// server.changed(e.path)
-		// console.log(e.path);
 	});
 
 	gulp.watch(paths.src.js, function(e){
-		gulp.run('coffee');
+		gulp.run('coffee', 'build');
 		server.changed(e.path)
 	});
 

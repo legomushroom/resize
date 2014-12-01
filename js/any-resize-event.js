@@ -1,3 +1,9 @@
+
+/*!
+  LegoMushroom @legomushroom http://legomushroom.com
+  MIT License 2014
+ */
+
 (function() {
   var Main;
 
@@ -79,6 +85,7 @@
               var wrappedRemover;
               wrappedRemover = function() {
                 this.isAnyResizeEventInited = false;
+                this.iframe && this.removeChild(this.iframe);
                 return remover.apply(this, arguments);
               };
               if (proto.prototype.removeEventListener) {
@@ -119,6 +126,7 @@
             };
           })(this);
         }
+        el.iframe = iframe;
       } else {
         this.initTimer(el);
       }

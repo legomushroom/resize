@@ -1,6 +1,10 @@
-#! Legomushroom 2014 MIT
+###!
+  LegoMushroom @legomushroom http://legomushroom.com
+  MIT License 2014
+###
+
 # TODO
-#   add license comments
+#   remove iframe on removeEventListener
 
 class Main
   constructor:(@o={})->
@@ -92,6 +96,7 @@ class Main
         do (remover)->
           wrappedRemover = ->
             @isAnyResizeEventInited = false
+            @iframe and @removeChild @iframe
             remover.apply(@,arguments)
           if proto::removeEventListener
             proto::removeEventListener = wrappedRemover
@@ -120,6 +125,7 @@ class Main
       if isStatic or isEmpty
         el.style.position = 'relative'
       iframe.contentWindow?.onresize = (e)=> @dispatchEvent el
+      el.iframe = iframe
     else @initTimer(el)
     el.isAnyResizeEventInited = true
 
