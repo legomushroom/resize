@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-	<testsuite tests="22" errors="0" failures="0" time="0.295" timestamp="2014-12-01T23:03:37">
-		<testcase classname="suite1" name="should allow to write to Element prototype" time="0">
+	<testsuite tests="22" errors="0" failures="0" time="0.28" timestamp="2014-12-02T10:25:28">
+		<testcase classname="suite1" name="should allow to write to Element prototype" time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="should have a dispatch event functionality" time="0">
 		</testcase>
@@ -11,27 +11,27 @@
 		</testcase>
 		<testcase classname="suite1" name="should have a computedStyle functionality" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should have size detection functionality" time="0.017">
+		<testcase classname="suite1" name="should have size detection functionality" time="0.003">
 		</testcase>
 		<testcase classname="suite1" name="should have size detection functionality" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should add iframe to the element" time="0.002">
+		<testcase classname="suite1" name="should add iframe to the element" time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="should have an access to iframe window" time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="iframe should have onresize method" time="0.006">
 		</testcase>
-		<testcase classname="suite1" name="should add position: relative style to static element" time="0">
+		<testcase classname="suite1" name="should add position: relative style to static element" time="0.001">
 		</testcase>
-		<testcase classname="suite1" name="should not alter absolute position style" time="0.001">
+		<testcase classname="suite1" name="should not alter absolute position style" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should not alter fixed position style" time="0">
+		<testcase classname="suite1" name="should not alter fixed position style" time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="iframe should have right styles" time="0">
 		</testcase>
 		<testcase classname="suite1" name="should work on resize event only " time="0">
 		</testcase>
-		<testcase classname="suite1" name="should be initialized only once" time="0">
+		<testcase classname="suite1" name="should be initialized only once" time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="should add only one listener" time="0.003">
 		</testcase>
@@ -41,7 +41,7 @@
 		</testcase>
 		<testcase classname="suite1" name="should fail when removeEvent was called before addEvent" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should have node&amp;apos;s scope" time="0.256">
+		<testcase classname="suite1" name="should have node&amp;apos;s scope" time="0.257">
 		</testcase>
 		<testcase classname="suite1" name="should reverse old listener on destroy" time="0.002">
 		</testcase>

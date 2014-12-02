@@ -11,9 +11,7 @@ var watch 				= require('gulp-jade');
 var watch 				= require('gulp-jade');
 var coffeelint 		= require('gulp-coffeelint');
 var plumber 			= require('gulp-plumber');
-var karma 				= require('gulp-karma');
 var uglify 				= require('gulp-uglify');
-var jasmine 			= require('gulp-jasmine-phantom');
 var jasminePhantomJs = require('gulp-jasmine2-phantomjs');
 
 var devFolder 	= '';
