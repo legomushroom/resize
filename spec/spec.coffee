@@ -60,13 +60,14 @@ describe 'resizer', ->
       document.body.appendChild el
       expect(iframe.contentWindow).toBeDefined()
 
-    it 'iframe should have onresize method', ->
-      el = document.createElement 'div'
-      document.body.appendChild el
-      addEvent el, 'onresize', (->)
-      iframe = el.children[0]
-      waits(2)
-      runs ->
+    describe 'iframe onresize method', ->
+      beforeEach (done)-> setTimeout((-> done()), 2)
+
+      it 'iframe should have onresize method', ->
+        el = document.createElement 'div'
+        document.body.appendChild el
+        addEvent el, 'onresize', (->)
+        iframe = el.children[0]
         expect(iframe.contentWindow.onresize or main.interval).toBeDefined()
 
     it 'should add position: relative style to static element', ->
@@ -144,19 +145,24 @@ describe 'resizer', ->
       isError = false
       fun = ->
       try
-        removeEvent el, 'onresize', fun    
+        removeEvent el, 'onresize', fun
       catch e
         isError = true
 
       expect(isError).toBe(false)
 
-    it 'should have node\'s scope' , ->
-      el = document.createElement 'div'
-      document.body.appendChild el
+    describe 'scope', ->
       scope = null
-      addEvent el, 'onresize', (-> scope = @ )
-      el.style.width = '201px'
-      waits(250); runs -> expect(scope).toEqual(el)
+      el = document.createElement 'div'
+      beforeEach (done)->
+        document.body.appendChild el
+        addEvent el, 'onresize', -> scope = @
+        setTimeout (-> el.style.width = '201px'), 100
+        setTimeout ->
+          done()
+        , 250
+
+      it 'should have node\'s scope' , -> expect(scope).toEqual(el)
 
     it 'should reverse old listener on destroy', ->
       window.anyResizeEvent.destroy()

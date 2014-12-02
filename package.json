@@ -9,7 +9,7 @@
   },
   "private": false,
   "scripts": {
-    "test": "testem"
+    "test": "gulp test"
   },
   "dependencies": {},
   "devDependencies": {
@@ -28,6 +28,9 @@
     "gulp-plumber": "*",
     "gulp-karma": "*",
     "gulp-uglify": "*",
-    "testem": "*"
+    "testem": "*",
+    "gulp-jasmine-phantom": "latest",
+    "gulp-jasmine2-phantomjs": "latest",
+    "jasmine2-junit": "latest"
   }
 }

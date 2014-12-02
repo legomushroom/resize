@@ -1,0 +1,243 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.3.14
+3 info using node@v0.10.22
+4 warn package.json app-name@0.0.0 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Applications/MAMP/htdocs/live-projects/resize',
+6 verbose install   [ 'nodemon',
+6 verbose install     'gulp',
+6 verbose install     'gulp-minify-css',
+6 verbose install     'gulp-stylus',
+6 verbose install     'gulp-autoprefixer',
+6 verbose install     'gulp-notify',
+6 verbose install     'gulp-livereload',
+6 verbose install     'gulp-coffee',
+6 verbose install     'gulp-changed',
+6 verbose install     'gulp-jade',
+6 verbose install     'gulp-watch',
+6 verbose install     'gulp-coffeelint',
+6 verbose install     'gulp-plumber',
+6 verbose install     'gulp-karma',
+6 verbose install     'gulp-uglify',
+6 verbose install     'testem',
+6 verbose install     'gulp-jasmine-phantom',
+6 verbose install     'gulp-jasmine2-phantomjs',
+6 verbose install     'jasmine2-junit' ] ]
+7 info preinstall app-name@0.0.0
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping gulp-minify-css@~0.3.0 /Applications/MAMP/htdocs/live-projects/resize
+10 verbose already installed skipping nodemon@* /Applications/MAMP/htdocs/live-projects/resize
+11 verbose cache add [ 'gulp@latest', null ]
+12 verbose cache add name=undefined spec="gulp@latest" args=["gulp@latest",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'gulp@latest',
+13 verbose parsed url   path: 'gulp@latest',
+13 verbose parsed url   href: 'gulp@latest' }
+14 verbose cache add name="gulp" spec="latest" args=["gulp","latest"]
+15 verbose parsed url { protocol: null,
+15 verbose parsed url   slashes: null,
+15 verbose parsed url   auth: null,
+15 verbose parsed url   host: null,
+15 verbose parsed url   port: null,
+15 verbose parsed url   hostname: null,
+15 verbose parsed url   hash: null,
+15 verbose parsed url   search: null,
+15 verbose parsed url   query: null,
+15 verbose parsed url   pathname: 'latest',
+15 verbose parsed url   path: 'latest',
+15 verbose parsed url   href: 'latest' }
+16 verbose addNamed [ 'gulp', 'latest' ]
+17 verbose addNamed [ null, null ]
+18 verbose already installed skipping gulp-stylus@0.0.12 /Applications/MAMP/htdocs/live-projects/resize
+19 verbose already installed skipping gulp-autoprefixer@0.0.6 /Applications/MAMP/htdocs/live-projects/resize
+20 verbose already installed skipping gulp-notify@~0.5.1 /Applications/MAMP/htdocs/live-projects/resize
+21 silly lockFile 429e12c1-gulp-latest gulp@latest
+22 verbose lock gulp@latest /Users/mac/.npm/429e12c1-gulp-latest.lock
+23 verbose already installed skipping gulp-livereload@~1.2.0 /Applications/MAMP/htdocs/live-projects/resize
+24 verbose already installed skipping gulp-coffee@~1.4.1 /Applications/MAMP/htdocs/live-projects/resize
+25 info addNameTag [ 'gulp', 'latest' ]
+26 verbose url raw gulp
+27 verbose url resolving [ 'https://registry.npmjs.org/', './gulp' ]
+28 verbose url resolved https://registry.npmjs.org/gulp
+29 info trying registry request attempt 1 at 22:23:50
+30 verbose etag "EQ2FXO9VLC3A21TL63UXDEU8A"
+31 http GET https://registry.npmjs.org/gulp
+32 verbose already installed skipping gulp-watch@* /Applications/MAMP/htdocs/live-projects/resize
+33 verbose already installed skipping gulp-changed@~0.2.0 /Applications/MAMP/htdocs/live-projects/resize
+34 verbose already installed skipping gulp-coffeelint@* /Applications/MAMP/htdocs/live-projects/resize
+35 verbose already installed skipping gulp-jade@~0.4.2 /Applications/MAMP/htdocs/live-projects/resize
+36 verbose already installed skipping gulp-plumber@* /Applications/MAMP/htdocs/live-projects/resize
+37 verbose already installed skipping gulp-karma@* /Applications/MAMP/htdocs/live-projects/resize
+38 verbose already installed skipping gulp-uglify@* /Applications/MAMP/htdocs/live-projects/resize
+39 verbose already installed skipping testem@* /Applications/MAMP/htdocs/live-projects/resize
+40 verbose cache add [ 'gulp-jasmine-phantom@latest', null ]
+41 verbose cache add name=undefined spec="gulp-jasmine-phantom@latest" args=["gulp-jasmine-phantom@latest",null]
+42 verbose parsed url { protocol: null,
+42 verbose parsed url   slashes: null,
+42 verbose parsed url   auth: null,
+42 verbose parsed url   host: null,
+42 verbose parsed url   port: null,
+42 verbose parsed url   hostname: null,
+42 verbose parsed url   hash: null,
+42 verbose parsed url   search: null,
+42 verbose parsed url   query: null,
+42 verbose parsed url   pathname: 'gulp-jasmine-phantom@latest',
+42 verbose parsed url   path: 'gulp-jasmine-phantom@latest',
+42 verbose parsed url   href: 'gulp-jasmine-phantom@latest' }
+43 verbose cache add name="gulp-jasmine-phantom" spec="latest" args=["gulp-jasmine-phantom","latest"]
+44 verbose parsed url { protocol: null,
+44 verbose parsed url   slashes: null,
+44 verbose parsed url   auth: null,
+44 verbose parsed url   host: null,
+44 verbose parsed url   port: null,
+44 verbose parsed url   hostname: null,
+44 verbose parsed url   hash: null,
+44 verbose parsed url   search: null,
+44 verbose parsed url   query: null,
+44 verbose parsed url   pathname: 'latest',
+44 verbose parsed url   path: 'latest',
+44 verbose parsed url   href: 'latest' }
+45 verbose addNamed [ 'gulp-jasmine-phantom', 'latest' ]
+46 verbose addNamed [ null, null ]
+47 silly lockFile d80f234d-gulp-jasmine-phantom-latest gulp-jasmine-phantom@latest
+48 verbose lock gulp-jasmine-phantom@latest /Users/mac/.npm/d80f234d-gulp-jasmine-phantom-latest.lock
+49 verbose cache add [ 'gulp-jasmine2-phantomjs@latest', null ]
+50 verbose cache add name=undefined spec="gulp-jasmine2-phantomjs@latest" args=["gulp-jasmine2-phantomjs@latest",null]
+51 verbose parsed url { protocol: null,
+51 verbose parsed url   slashes: null,
+51 verbose parsed url   auth: null,
+51 verbose parsed url   host: null,
+51 verbose parsed url   port: null,
+51 verbose parsed url   hostname: null,
+51 verbose parsed url   hash: null,
+51 verbose parsed url   search: null,
+51 verbose parsed url   query: null,
+51 verbose parsed url   pathname: 'gulp-jasmine2-phantomjs@latest',
+51 verbose parsed url   path: 'gulp-jasmine2-phantomjs@latest',
+51 verbose parsed url   href: 'gulp-jasmine2-phantomjs@latest' }
+52 verbose cache add name="gulp-jasmine2-phantomjs" spec="latest" args=["gulp-jasmine2-phantomjs","latest"]
+53 verbose parsed url { protocol: null,
+53 verbose parsed url   slashes: null,
+53 verbose parsed url   auth: null,
+53 verbose parsed url   host: null,
+53 verbose parsed url   port: null,
+53 verbose parsed url   hostname: null,
+53 verbose parsed url   hash: null,
+53 verbose parsed url   search: null,
+53 verbose parsed url   query: null,
+53 verbose parsed url   pathname: 'latest',
+53 verbose parsed url   path: 'latest',
+53 verbose parsed url   href: 'latest' }
+54 verbose addNamed [ 'gulp-jasmine2-phantomjs', 'latest' ]
+55 verbose addNamed [ null, null ]
+56 silly lockFile c8f95bb5-gulp-jasmine2-phantomjs-latest gulp-jasmine2-phantomjs@latest
+57 verbose lock gulp-jasmine2-phantomjs@latest /Users/mac/.npm/c8f95bb5-gulp-jasmine2-phantomjs-latest.lock
+58 verbose cache add [ 'jasmine2-junit@latest', null ]
+59 verbose cache add name=undefined spec="jasmine2-junit@latest" args=["jasmine2-junit@latest",null]
+60 verbose parsed url { protocol: null,
+60 verbose parsed url   slashes: null,
+60 verbose parsed url   auth: null,
+60 verbose parsed url   host: null,
+60 verbose parsed url   port: null,
+60 verbose parsed url   hostname: null,
+60 verbose parsed url   hash: null,
+60 verbose parsed url   search: null,
+60 verbose parsed url   query: null,
+60 verbose parsed url   pathname: 'jasmine2-junit@latest',
+60 verbose parsed url   path: 'jasmine2-junit@latest',
+60 verbose parsed url   href: 'jasmine2-junit@latest' }
+61 verbose cache add name="jasmine2-junit" spec="latest" args=["jasmine2-junit","latest"]
+62 verbose parsed url { protocol: null,
+62 verbose parsed url   slashes: null,
+62 verbose parsed url   auth: null,
+62 verbose parsed url   host: null,
+62 verbose parsed url   port: null,
+62 verbose parsed url   hostname: null,
+62 verbose parsed url   hash: null,
+62 verbose parsed url   search: null,
+62 verbose parsed url   query: null,
+62 verbose parsed url   pathname: 'latest',
+62 verbose parsed url   path: 'latest',
+62 verbose parsed url   href: 'latest' }
+63 verbose addNamed [ 'jasmine2-junit', 'latest' ]
+64 verbose addNamed [ null, null ]
+65 silly lockFile 0353f07a-jasmine2-junit-latest jasmine2-junit@latest
+66 verbose lock jasmine2-junit@latest /Users/mac/.npm/0353f07a-jasmine2-junit-latest.lock
+67 info addNameTag [ 'gulp-jasmine-phantom', 'latest' ]
+68 info addNameTag [ 'gulp-jasmine2-phantomjs', 'latest' ]
+69 info addNameTag [ 'jasmine2-junit', 'latest' ]
+70 verbose url raw jasmine2-junit
+71 verbose url resolving [ 'https://registry.npmjs.org/', './jasmine2-junit' ]
+72 verbose url resolved https://registry.npmjs.org/jasmine2-junit
+73 info trying registry request attempt 1 at 22:23:50
+74 http GET https://registry.npmjs.org/jasmine2-junit
+75 verbose url raw gulp-jasmine-phantom
+76 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-jasmine-phantom' ]
+77 verbose url resolved https://registry.npmjs.org/gulp-jasmine-phantom
+78 info trying registry request attempt 1 at 22:23:50
+79 verbose etag "37JTL6EZF785KJ52U8KI84A78"
+80 http GET https://registry.npmjs.org/gulp-jasmine-phantom
+81 verbose url raw gulp-jasmine2-phantomjs
+82 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-jasmine2-phantomjs' ]
+83 verbose url resolved https://registry.npmjs.org/gulp-jasmine2-phantomjs
+84 info trying registry request attempt 1 at 22:23:50
+85 verbose etag "7NO8C2704B86H3LVU5B5BWK21"
+86 http GET https://registry.npmjs.org/gulp-jasmine2-phantomjs
+87 http 304 https://registry.npmjs.org/gulp-jasmine-phantom
+88 silly registry.get cb [ 304,
+88 silly registry.get   { date: 'Mon, 01 Dec 2014 20:23:52 GMT',
+88 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+88 silly registry.get     etag: '"37JTL6EZF785KJ52U8KI84A78"',
+88 silly registry.get     'cache-control': 'max-age=60',
+88 silly registry.get     'accept-ranges': 'bytes',
+88 silly registry.get     via: '1.1 varnish',
+88 silly registry.get     'x-served-by': 'cache-fra1240-FRA',
+88 silly registry.get     'x-cache': 'MISS',
+88 silly registry.get     'x-cache-hits': '0',
+88 silly registry.get     'x-timer': 'S1417465431.832222,VS0,VE705',
+88 silly registry.get     'content-length': '0',
+88 silly registry.get     'keep-alive': 'timeout=10, max=50',
+88 silly registry.get     connection: 'Keep-Alive' } ]
+89 verbose etag gulp-jasmine-phantom from cache
+90 verbose addNamed [ 'gulp-jasmine-phantom', '1.0.13' ]
+91 verbose addNamed [ '1.0.13', '1.0.13' ]
+92 silly lockFile 2e1d565c-gulp-jasmine-phantom-1-0-13 gulp-jasmine-phantom@1.0.13
+93 verbose lock gulp-jasmine-phantom@1.0.13 /Users/mac/.npm/2e1d565c-gulp-jasmine-phantom-1-0-13.lock
+94 http 404 https://registry.npmjs.org/jasmine2-junit
+95 silly registry.get cb [ 404,
+95 silly registry.get   { date: 'Mon, 01 Dec 2014 20:23:52 GMT',
+95 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+95 silly registry.get     'content-type': 'application/json',
+95 silly registry.get     'cache-control': 'max-age=0',
+95 silly registry.get     'content-length': '52',
+95 silly registry.get     'accept-ranges': 'bytes',
+95 silly registry.get     via: '1.1 varnish',
+95 silly registry.get     'x-served-by': 'cache-fra1245-FRA',
+95 silly registry.get     'x-cache': 'MISS',
+95 silly registry.get     'x-cache-hits': '0',
+95 silly registry.get     'x-timer': 'S1417465431.827737,VS0,VE720',
+95 silly registry.get     'keep-alive': 'timeout=10, max=50',
+95 silly registry.get     connection: 'Keep-Alive' } ]
+96 silly lockFile 0353f07a-jasmine2-junit-latest jasmine2-junit@latest
+97 silly lockFile 0353f07a-jasmine2-junit-latest jasmine2-junit@latest
+98 error 404 'jasmine2-junit' is not in the npm registry.
+98 error 404 You should bug the author to publish it
+98 error 404
+98 error 404 Note that you can also install from a
+98 error 404 tarball, folder, or http url, or git url.
+99 error System Darwin 14.0.0
+100 error command "node" "/usr/local/bin/npm" "install"
+101 error cwd /Applications/MAMP/htdocs/live-projects/resize
+102 error node -v v0.10.22
+103 error npm -v 1.3.14
+104 error code E404
+105 verbose exit [ 1, true ]

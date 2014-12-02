@@ -72,14 +72,18 @@
         document.body.appendChild(el);
         return expect(iframe.contentWindow).toBeDefined();
       });
-      it('iframe should have onresize method', function() {
-        var el, iframe;
-        el = document.createElement('div');
-        document.body.appendChild(el);
-        addEvent(el, 'onresize', (function() {}));
-        iframe = el.children[0];
-        waits(2);
-        return runs(function() {
+      describe('iframe onresize method', function() {
+        beforeEach(function(done) {
+          return setTimeout((function() {
+            return done();
+          }), 2);
+        });
+        return it('iframe should have onresize method', function() {
+          var el, iframe;
+          el = document.createElement('div');
+          document.body.appendChild(el);
+          addEvent(el, 'onresize', (function() {}));
+          iframe = el.children[0];
           return expect(iframe.contentWindow.onresize || main.interval).toBeDefined();
         });
       });
@@ -175,17 +179,23 @@
         }
         return expect(isError).toBe(false);
       });
-      it('should have node\'s scope', function() {
+      describe('scope', function() {
         var el, scope;
-        el = document.createElement('div');
-        document.body.appendChild(el);
         scope = null;
-        addEvent(el, 'onresize', (function() {
-          return scope = this;
-        }));
-        el.style.width = '201px';
-        waits(250);
-        return runs(function() {
+        el = document.createElement('div');
+        beforeEach(function(done) {
+          document.body.appendChild(el);
+          addEvent(el, 'onresize', function() {
+            return scope = this;
+          });
+          setTimeout((function() {
+            return el.style.width = '201px';
+          }), 100);
+          return setTimeout(function() {
+            return done();
+          }, 250);
+        });
+        return it('should have node\'s scope', function() {
           return expect(scope).toEqual(el);
         });
       });

@@ -13,6 +13,8 @@ var coffeelint 		= require('gulp-coffeelint');
 var plumber 			= require('gulp-plumber');
 var karma 				= require('gulp-karma');
 var uglify 				= require('gulp-uglify');
+var jasmine 			= require('gulp-jasmine-phantom');
+var jasminePhantomJs = require('gulp-jasmine2-phantomjs');
 
 var devFolder 	= '';
 var distFolder  = '';
@@ -74,6 +76,12 @@ gulp.task('coffee:tests', function(e){
 					.pipe(coffee())
 					.pipe(gulp.dest(paths.dist.tests))
 					.pipe(livereload())
+});
+
+
+gulp.task('test', function(){
+	return gulp.src('spec/SpecRunner.html')
+        .pipe(jasminePhantomJs());
 });
 
 gulp.task('kit:jade', function(e){
