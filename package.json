@@ -30,7 +30,6 @@
     "gulp-uglify": "*",
     "testem": "*",
     "gulp-jasmine-phantom": "latest",
-    "gulp-jasmine2-phantomjs": "latest",
-    "jasmine2-junit": "latest"
+    "gulp-jasmine2-phantomjs": "latest"
   }
 }
