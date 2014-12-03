@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-	<testsuite tests="22" errors="0" failures="0" time="0.28" timestamp="2014-12-02T10:25:28">
-		<testcase classname="suite1" name="should allow to write to Element prototype" time="0.001">
+	<testsuite tests="22" errors="0" failures="0" time="0.301" timestamp="2014-12-02T11:33:51">
+		<testcase classname="suite1" name="should allow to write to Element prototype" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should have a dispatch event functionality" time="0">
+		<testcase classname="suite1" name="should have a dispatch event functionality" time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="should have a addEventListener or attachEvent" time="0">
 		</testcase>
@@ -11,7 +11,7 @@
 		</testcase>
 		<testcase classname="suite1" name="should have a computedStyle functionality" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should have size detection functionality" time="0.003">
+		<testcase classname="suite1" name="should have size detection functionality" time="0.023">
 		</testcase>
 		<testcase classname="suite1" name="should have size detection functionality" time="0">
 		</testcase>
@@ -25,9 +25,9 @@
 		</testcase>
 		<testcase classname="suite1" name="should not alter absolute position style" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should not alter fixed position style" time="0.001">
+		<testcase classname="suite1" name="should not alter fixed position style" time="0">
 		</testcase>
-		<testcase classname="suite1" name="iframe should have right styles" time="0">
+		<testcase classname="suite1" name="iframe should have right styles" time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="should work on resize event only " time="0">
 		</testcase>
