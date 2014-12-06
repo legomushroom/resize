@@ -30,6 +30,7 @@
     "testem": "0.6.23",
     "gulp-jasmine2-phantomjs": "0.2.0",
     "escape-string-regexp": "1.0.2",
-    "ansi-styles": "2.0.0"
+    "ansi-styles": "2.0.0",
+    "ansi-regex": "1.1.0"
   }
 }
