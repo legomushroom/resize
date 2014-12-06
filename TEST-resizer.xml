@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-	<testsuite tests="22" errors="0" failures="0" time="0.301" timestamp="2014-12-02T11:33:51">
-		<testcase classname="suite1" name="should allow to write to Element prototype" time="0">
+	<testsuite tests="22" errors="0" failures="0" time="0.302" timestamp="2014-12-06T10:51:30">
+		<testcase classname="suite1" name="should allow to write to Element prototype" time="0.001">
 		</testcase>
-		<testcase classname="suite1" name="should have a dispatch event functionality" time="0.001">
+		<testcase classname="suite1" name="should have a dispatch event functionality" time="0">
 		</testcase>
 		<testcase classname="suite1" name="should have a addEventListener or attachEvent" time="0">
 		</testcase>
@@ -11,7 +11,7 @@
 		</testcase>
 		<testcase classname="suite1" name="should have a computedStyle functionality" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should have size detection functionality" time="0.023">
+		<testcase classname="suite1" name="should have size detection functionality" time="0.024">
 		</testcase>
 		<testcase classname="suite1" name="should have size detection functionality" time="0">
 		</testcase>
@@ -19,7 +19,7 @@
 		</testcase>
 		<testcase classname="suite1" name="should have an access to iframe window" time="0.001">
 		</testcase>
-		<testcase classname="suite1" name="iframe should have onresize method" time="0.006">
+		<testcase classname="suite1" name="iframe should have onresize method" time="0.007">
 		</testcase>
 		<testcase classname="suite1" name="should add position: relative style to static element" time="0.001">
 		</testcase>
@@ -27,9 +27,9 @@
 		</testcase>
 		<testcase classname="suite1" name="should not alter fixed position style" time="0">
 		</testcase>
-		<testcase classname="suite1" name="iframe should have right styles" time="0.001">
+		<testcase classname="suite1" name="iframe should have right styles" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should work on resize event only " time="0">
+		<testcase classname="suite1" name="should work on resize event only " time="0.001">
 		</testcase>
 		<testcase classname="suite1" name="should be initialized only once" time="0.001">
 		</testcase>
@@ -41,7 +41,7 @@
 		</testcase>
 		<testcase classname="suite1" name="should fail when removeEvent was called before addEvent" time="0">
 		</testcase>
-		<testcase classname="suite1" name="should have node&amp;apos;s scope" time="0.257">
+		<testcase classname="suite1" name="should have node&amp;apos;s scope" time="0.255">
 		</testcase>
 		<testcase classname="suite1" name="should reverse old listener on destroy" time="0.002">
 		</testcase>
