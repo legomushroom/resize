@@ -4,7 +4,7 @@
 ###
 
 # TODO
-#   remove iframe on removeEventListener
+#   travis ci tests as at https://github.com/larrymyers/react-mini-router
 
 class Main
   constructor:(@o={})->

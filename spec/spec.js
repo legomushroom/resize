@@ -185,15 +185,19 @@
         el = document.createElement('div');
         beforeEach(function(done) {
           document.body.appendChild(el);
-          addEvent(el, 'onresize', function() {
-            return scope = this;
-          });
+          setTimeout(((function(_this) {
+            return function() {
+              return addEvent(el, 'onresize', function() {
+                return scope = this;
+              });
+            };
+          })(this)), 100);
           setTimeout((function() {
             return el.style.width = '201px';
-          }), 100);
-          return setTimeout(function() {
+          }), 200);
+          return setTimeout((function() {
             return done();
-          }, 250);
+          }), 250);
         });
         return it('should have node\'s scope', function() {
           return expect(scope).toEqual(el);

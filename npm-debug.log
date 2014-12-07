@@ -2,20 +2,496 @@
 1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
-4 error install Couldn't read dependencies
-5 error Failed to parse json
-5 error Unexpected token /
-6 error File: /Applications/MAMP/htdocs/live-projects/resize/package.json
-7 error Failed to parse package.json data.
-7 error package.json must be actual JSON, not just JavaScript.
-7 error
-7 error This is not a bug in npm.
-7 error Tell the package author to fix their package.json file. JSON.parse
-8 error System Darwin 14.0.0
-9 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install"
-10 error cwd /Applications/MAMP/htdocs/live-projects/resize
-11 error node -v v0.10.33
-12 error npm -v 1.4.28
-13 error file /Applications/MAMP/htdocs/live-projects/resize/package.json
-14 error code EJSONPARSE
-15 verbose exit [ 1, true ]
+4 warn package.json app-name@0.0.0 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Applications/MAMP/htdocs/live-projects/resize',
+6 verbose install   [ 'gulp',
+6 verbose install     'gulp-util',
+6 verbose install     'gulp-minify-css',
+6 verbose install     'gulp-stylus',
+6 verbose install     'gulp-autoprefixer',
+6 verbose install     'gulp-notify',
+6 verbose install     'gulp-livereload',
+6 verbose install     'gulp-coffee',
+6 verbose install     'gulp-changed',
+6 verbose install     'gulp-jade',
+6 verbose install     'gulp-watch',
+6 verbose install     'gulp-coffeelint',
+6 verbose install     'gulp-plumber',
+6 verbose install     'gulp-uglify',
+6 verbose install     'testem',
+6 verbose install     'gulp-jasmine2-phantomjs',
+6 verbose install     'ansi-styles',
+6 verbose install     'escape-string-regexp',
+6 verbose install     'has-ansi',
+6 verbose install     'strip-ansi',
+6 verbose install     'supports-color',
+6 verbose install     'karma',
+6 verbose install     'karma-jasmine',
+6 verbose install     'karma-chrome-launcher',
+6 verbose install     'karma-phantomjs-launcher' ] ]
+7 info preinstall app-name@0.0.0
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping gulp@3.8.10 /Applications/MAMP/htdocs/live-projects/resize
+10 verbose already installed skipping gulp-util@3.0.1 /Applications/MAMP/htdocs/live-projects/resize
+11 verbose already installed skipping gulp-minify-css@~0.3.0 /Applications/MAMP/htdocs/live-projects/resize
+12 verbose already installed skipping gulp-stylus@0.0.12 /Applications/MAMP/htdocs/live-projects/resize
+13 verbose already installed skipping gulp-autoprefixer@0.0.6 /Applications/MAMP/htdocs/live-projects/resize
+14 verbose already installed skipping gulp-notify@~0.5.1 /Applications/MAMP/htdocs/live-projects/resize
+15 verbose already installed skipping gulp-livereload@~1.2.0 /Applications/MAMP/htdocs/live-projects/resize
+16 verbose already installed skipping gulp-coffee@~1.4.1 /Applications/MAMP/htdocs/live-projects/resize
+17 verbose already installed skipping gulp-changed@~0.2.0 /Applications/MAMP/htdocs/live-projects/resize
+18 verbose already installed skipping gulp-jade@~0.4.2 /Applications/MAMP/htdocs/live-projects/resize
+19 verbose already installed skipping gulp-watch@2.0.0 /Applications/MAMP/htdocs/live-projects/resize
+20 verbose already installed skipping gulp-coffeelint@0.4.0 /Applications/MAMP/htdocs/live-projects/resize
+21 verbose already installed skipping gulp-plumber@0.6.6 /Applications/MAMP/htdocs/live-projects/resize
+22 verbose already installed skipping gulp-uglify@1.0.1 /Applications/MAMP/htdocs/live-projects/resize
+23 verbose already installed skipping testem@0.6.23 /Applications/MAMP/htdocs/live-projects/resize
+24 verbose already installed skipping gulp-jasmine2-phantomjs@0.2.0 /Applications/MAMP/htdocs/live-projects/resize
+25 verbose already installed skipping ansi-styles@^1.1.0 /Applications/MAMP/htdocs/live-projects/resize
+26 verbose already installed skipping escape-string-regexp@^1.0.0 /Applications/MAMP/htdocs/live-projects/resize
+27 verbose already installed skipping has-ansi@^0.1.0 /Applications/MAMP/htdocs/live-projects/resize
+28 verbose already installed skipping strip-ansi@^0.3.0 /Applications/MAMP/htdocs/live-projects/resize
+29 verbose already installed skipping supports-color@^0.2.0 /Applications/MAMP/htdocs/live-projects/resize
+30 verbose cache add [ 'karma@^0.12.21', null ]
+31 verbose cache add name=undefined spec="karma@^0.12.21" args=["karma@^0.12.21",null]
+32 verbose parsed url { protocol: null,
+32 verbose parsed url   slashes: null,
+32 verbose parsed url   auth: null,
+32 verbose parsed url   host: null,
+32 verbose parsed url   port: null,
+32 verbose parsed url   hostname: null,
+32 verbose parsed url   hash: null,
+32 verbose parsed url   search: null,
+32 verbose parsed url   query: null,
+32 verbose parsed url   pathname: 'karma@^0.12.21',
+32 verbose parsed url   path: 'karma@^0.12.21',
+32 verbose parsed url   href: 'karma@^0.12.21' }
+33 verbose cache add [ 'karma-jasmine@^0.1.6', null ]
+34 verbose cache add name=undefined spec="karma-jasmine@^0.1.6" args=["karma-jasmine@^0.1.6",null]
+35 verbose parsed url { protocol: null,
+35 verbose parsed url   slashes: null,
+35 verbose parsed url   auth: null,
+35 verbose parsed url   host: null,
+35 verbose parsed url   port: null,
+35 verbose parsed url   hostname: null,
+35 verbose parsed url   hash: null,
+35 verbose parsed url   search: null,
+35 verbose parsed url   query: null,
+35 verbose parsed url   pathname: 'karma-jasmine@^0.1.6',
+35 verbose parsed url   path: 'karma-jasmine@^0.1.6',
+35 verbose parsed url   href: 'karma-jasmine@^0.1.6' }
+36 verbose cache add [ 'karma-chrome-launcher@^0.1.4', null ]
+37 verbose cache add name=undefined spec="karma-chrome-launcher@^0.1.4" args=["karma-chrome-launcher@^0.1.4",null]
+38 verbose parsed url { protocol: null,
+38 verbose parsed url   slashes: null,
+38 verbose parsed url   auth: null,
+38 verbose parsed url   host: null,
+38 verbose parsed url   port: null,
+38 verbose parsed url   hostname: null,
+38 verbose parsed url   hash: null,
+38 verbose parsed url   search: null,
+38 verbose parsed url   query: null,
+38 verbose parsed url   pathname: 'karma-chrome-launcher@^0.1.4',
+38 verbose parsed url   path: 'karma-chrome-launcher@^0.1.4',
+38 verbose parsed url   href: 'karma-chrome-launcher@^0.1.4' }
+39 verbose cache add name="karma" spec="^0.12.21" args=["karma","^0.12.21"]
+40 verbose parsed url { protocol: null,
+40 verbose parsed url   slashes: null,
+40 verbose parsed url   auth: null,
+40 verbose parsed url   host: null,
+40 verbose parsed url   port: null,
+40 verbose parsed url   hostname: null,
+40 verbose parsed url   hash: null,
+40 verbose parsed url   search: null,
+40 verbose parsed url   query: null,
+40 verbose parsed url   pathname: '^0.12.21',
+40 verbose parsed url   path: '^0.12.21',
+40 verbose parsed url   href: '^0.12.21' }
+41 verbose addNamed [ 'karma', '^0.12.21' ]
+42 verbose addNamed [ null, '>=0.12.21-0 <0.13.0-0' ]
+43 verbose cache add name="karma-jasmine" spec="^0.1.6" args=["karma-jasmine","^0.1.6"]
+44 verbose parsed url { protocol: null,
+44 verbose parsed url   slashes: null,
+44 verbose parsed url   auth: null,
+44 verbose parsed url   host: null,
+44 verbose parsed url   port: null,
+44 verbose parsed url   hostname: null,
+44 verbose parsed url   hash: null,
+44 verbose parsed url   search: null,
+44 verbose parsed url   query: null,
+44 verbose parsed url   pathname: '^0.1.6',
+44 verbose parsed url   path: '^0.1.6',
+44 verbose parsed url   href: '^0.1.6' }
+45 verbose addNamed [ 'karma-jasmine', '^0.1.6' ]
+46 verbose addNamed [ null, '>=0.1.6-0 <0.2.0-0' ]
+47 verbose cache add [ 'karma-phantomjs-launcher@^0.1.4', null ]
+48 verbose cache add name=undefined spec="karma-phantomjs-launcher@^0.1.4" args=["karma-phantomjs-launcher@^0.1.4",null]
+49 verbose parsed url { protocol: null,
+49 verbose parsed url   slashes: null,
+49 verbose parsed url   auth: null,
+49 verbose parsed url   host: null,
+49 verbose parsed url   port: null,
+49 verbose parsed url   hostname: null,
+49 verbose parsed url   hash: null,
+49 verbose parsed url   search: null,
+49 verbose parsed url   query: null,
+49 verbose parsed url   pathname: 'karma-phantomjs-launcher@^0.1.4',
+49 verbose parsed url   path: 'karma-phantomjs-launcher@^0.1.4',
+49 verbose parsed url   href: 'karma-phantomjs-launcher@^0.1.4' }
+50 verbose cache add name="karma-chrome-launcher" spec="^0.1.4" args=["karma-chrome-launcher","^0.1.4"]
+51 verbose parsed url { protocol: null,
+51 verbose parsed url   slashes: null,
+51 verbose parsed url   auth: null,
+51 verbose parsed url   host: null,
+51 verbose parsed url   port: null,
+51 verbose parsed url   hostname: null,
+51 verbose parsed url   hash: null,
+51 verbose parsed url   search: null,
+51 verbose parsed url   query: null,
+51 verbose parsed url   pathname: '^0.1.4',
+51 verbose parsed url   path: '^0.1.4',
+51 verbose parsed url   href: '^0.1.4' }
+52 verbose addNamed [ 'karma-chrome-launcher', '^0.1.4' ]
+53 verbose addNamed [ null, '>=0.1.4-0 <0.2.0-0' ]
+54 silly lockFile 35ff5c57-karma-0-12-21 karma@^0.12.21
+55 verbose lock karma@^0.12.21 /Users/mac/.npm/35ff5c57-karma-0-12-21.lock
+56 silly lockFile 4aaa2489-karma-jasmine-0-1-6 karma-jasmine@^0.1.6
+57 verbose lock karma-jasmine@^0.1.6 /Users/mac/.npm/4aaa2489-karma-jasmine-0-1-6.lock
+58 silly lockFile cd7d8138-karma-chrome-launcher-0-1-4 karma-chrome-launcher@^0.1.4
+59 verbose lock karma-chrome-launcher@^0.1.4 /Users/mac/.npm/cd7d8138-karma-chrome-launcher-0-1-4.lock
+60 verbose cache add name="karma-phantomjs-launcher" spec="^0.1.4" args=["karma-phantomjs-launcher","^0.1.4"]
+61 verbose parsed url { protocol: null,
+61 verbose parsed url   slashes: null,
+61 verbose parsed url   auth: null,
+61 verbose parsed url   host: null,
+61 verbose parsed url   port: null,
+61 verbose parsed url   hostname: null,
+61 verbose parsed url   hash: null,
+61 verbose parsed url   search: null,
+61 verbose parsed url   query: null,
+61 verbose parsed url   pathname: '^0.1.4',
+61 verbose parsed url   path: '^0.1.4',
+61 verbose parsed url   href: '^0.1.4' }
+62 verbose addNamed [ 'karma-phantomjs-launcher', '^0.1.4' ]
+63 verbose addNamed [ null, '>=0.1.4-0 <0.2.0-0' ]
+64 silly lockFile a2b6b896-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@^0.1.4
+65 verbose lock karma-phantomjs-launcher@^0.1.4 /Users/mac/.npm/a2b6b896-karma-phantomjs-launcher-0-1-4.lock
+66 silly addNameRange { name: 'karma', range: '>=0.12.21-0 <0.13.0-0', hasData: false }
+67 silly addNameRange { name: 'karma-jasmine',
+67 silly addNameRange   range: '>=0.1.6-0 <0.2.0-0',
+67 silly addNameRange   hasData: false }
+68 silly addNameRange { name: 'karma-chrome-launcher',
+68 silly addNameRange   range: '>=0.1.4-0 <0.2.0-0',
+68 silly addNameRange   hasData: false }
+69 silly addNameRange { name: 'karma-phantomjs-launcher',
+69 silly addNameRange   range: '>=0.1.4-0 <0.2.0-0',
+69 silly addNameRange   hasData: false }
+70 verbose request where is /karma
+71 verbose request registry https://registry.npmjs.org/
+72 verbose request id dad2ccb5a3077fbb
+73 verbose url raw /karma
+74 verbose url resolving [ 'https://registry.npmjs.org/', './karma' ]
+75 verbose url resolved https://registry.npmjs.org/karma
+76 verbose request where is https://registry.npmjs.org/karma
+77 info trying registry request attempt 1 at 13:53:25
+78 http GET https://registry.npmjs.org/karma
+79 verbose request where is /karma-jasmine
+80 verbose request registry https://registry.npmjs.org/
+81 verbose url raw /karma-jasmine
+82 verbose url resolving [ 'https://registry.npmjs.org/', './karma-jasmine' ]
+83 verbose url resolved https://registry.npmjs.org/karma-jasmine
+84 verbose request where is https://registry.npmjs.org/karma-jasmine
+85 info trying registry request attempt 1 at 13:53:25
+86 http GET https://registry.npmjs.org/karma-jasmine
+87 verbose request where is /karma-chrome-launcher
+88 verbose request registry https://registry.npmjs.org/
+89 verbose url raw /karma-chrome-launcher
+90 verbose url resolving [ 'https://registry.npmjs.org/', './karma-chrome-launcher' ]
+91 verbose url resolved https://registry.npmjs.org/karma-chrome-launcher
+92 verbose request where is https://registry.npmjs.org/karma-chrome-launcher
+93 info trying registry request attempt 1 at 13:53:25
+94 http GET https://registry.npmjs.org/karma-chrome-launcher
+95 verbose request where is /karma-phantomjs-launcher
+96 verbose request registry https://registry.npmjs.org/
+97 verbose url raw /karma-phantomjs-launcher
+98 verbose url resolving [ 'https://registry.npmjs.org/', './karma-phantomjs-launcher' ]
+99 verbose url resolved https://registry.npmjs.org/karma-phantomjs-launcher
+100 verbose request where is https://registry.npmjs.org/karma-phantomjs-launcher
+101 info trying registry request attempt 1 at 13:53:25
+102 http GET https://registry.npmjs.org/karma-phantomjs-launcher
+103 http 200 https://registry.npmjs.org/karma-chrome-launcher
+104 silly registry.get cb [ 200,
+104 silly registry.get   { date: 'Sun, 07 Dec 2014 11:53:26 GMT',
+104 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+104 silly registry.get     etag: '"3GTYYJ0BEOOVL3FAGRP3432XH"',
+104 silly registry.get     'content-type': 'application/json',
+104 silly registry.get     'cache-control': 'max-age=60',
+104 silly registry.get     'content-length': '15114',
+104 silly registry.get     'accept-ranges': 'bytes',
+104 silly registry.get     via: '1.1 varnish',
+104 silly registry.get     age: '54',
+104 silly registry.get     'x-served-by': 'cache-fra1239-FRA',
+104 silly registry.get     'x-cache': 'HIT',
+104 silly registry.get     'x-cache-hits': '1',
+104 silly registry.get     'x-timer': 'S1417953206.046063,VS0,VE0',
+104 silly registry.get     vary: 'Accept',
+104 silly registry.get     'keep-alive': 'timeout=10, max=50',
+104 silly registry.get     connection: 'Keep-Alive' } ]
+105 silly addNameRange number 2 { name: 'karma-chrome-launcher',
+105 silly addNameRange   range: '>=0.1.4-0 <0.2.0-0',
+105 silly addNameRange   hasData: true }
+106 silly addNameRange versions [ 'karma-chrome-launcher',
+106 silly addNameRange   [ '0.0.1',
+106 silly addNameRange     '0.0.2',
+106 silly addNameRange     '0.1.0',
+106 silly addNameRange     '0.1.1',
+106 silly addNameRange     '0.1.2',
+106 silly addNameRange     '0.1.3',
+106 silly addNameRange     '0.1.4',
+106 silly addNameRange     '0.1.5',
+106 silly addNameRange     '0.1.6',
+106 silly addNameRange     '0.1.7' ] ]
+107 verbose addNamed [ 'karma-chrome-launcher', '0.1.7' ]
+108 verbose addNamed [ '0.1.7', '0.1.7' ]
+109 silly lockFile ced0a4a4-karma-chrome-launcher-0-1-7 karma-chrome-launcher@0.1.7
+110 verbose lock karma-chrome-launcher@0.1.7 /Users/mac/.npm/ced0a4a4-karma-chrome-launcher-0-1-7.lock
+111 silly lockFile 709393aa--karma-chrome-launcher-0-1-7-tgz https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz
+112 verbose lock https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz /Users/mac/.npm/709393aa--karma-chrome-launcher-0-1-7-tgz.lock
+113 verbose addRemoteTarball [ 'https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz',
+113 verbose addRemoteTarball   'c248cc01d5ae17dafdb16319d0badf637dfb6e59' ]
+114 info retry fetch attempt 1 at 13:53:25
+115 verbose fetch to= /tmp/npm-80088-6GEyfJWh/registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz
+116 http GET https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz
+117 http 200 https://registry.npmjs.org/karma-phantomjs-launcher
+118 silly registry.get cb [ 200,
+118 silly registry.get   { date: 'Sun, 07 Dec 2014 11:53:26 GMT',
+118 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+118 silly registry.get     etag: '"66UFY5MR6A83JYRYD5F5XPBQP"',
+118 silly registry.get     'content-type': 'application/json',
+118 silly registry.get     'cache-control': 'max-age=60',
+118 silly registry.get     'content-length': '12786',
+118 silly registry.get     'accept-ranges': 'bytes',
+118 silly registry.get     via: '1.1 varnish',
+118 silly registry.get     age: '0',
+118 silly registry.get     'x-served-by': 'cache-fra1221-FRA',
+118 silly registry.get     'x-cache': 'HIT',
+118 silly registry.get     'x-cache-hits': '1',
+118 silly registry.get     'x-timer': 'S1417953206.060962,VS0,VE435',
+118 silly registry.get     vary: 'Accept',
+118 silly registry.get     'keep-alive': 'timeout=10, max=50',
+118 silly registry.get     connection: 'Keep-Alive' } ]
+119 silly addNameRange number 2 { name: 'karma-phantomjs-launcher',
+119 silly addNameRange   range: '>=0.1.4-0 <0.2.0-0',
+119 silly addNameRange   hasData: true }
+120 silly addNameRange versions [ 'karma-phantomjs-launcher',
+120 silly addNameRange   [ '0.0.1',
+120 silly addNameRange     '0.0.2',
+120 silly addNameRange     '0.0.3',
+120 silly addNameRange     '0.1.0',
+120 silly addNameRange     '0.1.1',
+120 silly addNameRange     '0.1.2',
+120 silly addNameRange     '0.1.3',
+120 silly addNameRange     '0.1.4' ] ]
+121 verbose addNamed [ 'karma-phantomjs-launcher', '0.1.4' ]
+122 verbose addNamed [ '0.1.4', '0.1.4' ]
+123 silly lockFile 5b4ecc13-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@0.1.4
+124 verbose lock karma-phantomjs-launcher@0.1.4 /Users/mac/.npm/5b4ecc13-karma-phantomjs-launcher-0-1-4.lock
+125 silly lockFile 6f63103b-rma-phantomjs-launcher-0-1-4-tgz https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz
+126 verbose lock https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz /Users/mac/.npm/6f63103b-rma-phantomjs-launcher-0-1-4-tgz.lock
+127 verbose addRemoteTarball [ 'https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz',
+127 verbose addRemoteTarball   '4ef96e4322ff63ae5d918e51c25b213723238f30' ]
+128 info retry fetch attempt 1 at 13:53:26
+129 verbose fetch to= /tmp/npm-80088-6GEyfJWh/registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz
+130 http GET https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz
+131 http 200 https://registry.npmjs.org/karma-jasmine
+132 silly registry.get cb [ 200,
+132 silly registry.get   { date: 'Sun, 07 Dec 2014 11:53:26 GMT',
+132 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+132 silly registry.get     etag: '"4XGLXSUPV5LJRNFSOX64GYABP"',
+132 silly registry.get     'content-type': 'application/json',
+132 silly registry.get     'cache-control': 'max-age=60',
+132 silly registry.get     'content-length': '25407',
+132 silly registry.get     'accept-ranges': 'bytes',
+132 silly registry.get     via: '1.1 varnish',
+132 silly registry.get     age: '0',
+132 silly registry.get     'x-served-by': 'cache-fra1245-FRA',
+132 silly registry.get     'x-cache': 'HIT',
+132 silly registry.get     'x-cache-hits': '1',
+132 silly registry.get     'x-timer': 'S1417953206.027463,VS0,VE424',
+132 silly registry.get     vary: 'Accept',
+132 silly registry.get     'keep-alive': 'timeout=10, max=50',
+132 silly registry.get     connection: 'Keep-Alive' } ]
+133 silly addNameRange number 2 { name: 'karma-jasmine',
+133 silly addNameRange   range: '>=0.1.6-0 <0.2.0-0',
+133 silly addNameRange   hasData: true }
+134 silly addNameRange versions [ 'karma-jasmine',
+134 silly addNameRange   [ '0.0.1',
+134 silly addNameRange     '0.0.2',
+134 silly addNameRange     '0.0.3',
+134 silly addNameRange     '0.1.0',
+134 silly addNameRange     '0.1.1',
+134 silly addNameRange     '0.1.2',
+134 silly addNameRange     '0.1.3',
+134 silly addNameRange     '0.1.4',
+134 silly addNameRange     '0.1.5',
+134 silly addNameRange     '0.2.0',
+134 silly addNameRange     '0.2.1',
+134 silly addNameRange     '0.2.2',
+134 silly addNameRange     '0.2.3',
+134 silly addNameRange     '0.3.0',
+134 silly addNameRange     '0.3.1',
+134 silly addNameRange     '0.3.2' ] ]
+135 silly lockFile 4aaa2489-karma-jasmine-0-1-6 karma-jasmine@^0.1.6
+136 silly lockFile 4aaa2489-karma-jasmine-0-1-6 karma-jasmine@^0.1.6
+137 http 200 https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz
+138 silly lockFile 709393aa--karma-chrome-launcher-0-1-7-tgz https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz
+139 silly lockFile 709393aa--karma-chrome-launcher-0-1-7-tgz https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-0.1.7.tgz
+140 silly lockFile ced0a4a4-karma-chrome-launcher-0-1-7 karma-chrome-launcher@0.1.7
+141 silly lockFile ced0a4a4-karma-chrome-launcher-0-1-7 karma-chrome-launcher@0.1.7
+142 silly lockFile cd7d8138-karma-chrome-launcher-0-1-4 karma-chrome-launcher@^0.1.4
+143 silly lockFile cd7d8138-karma-chrome-launcher-0-1-4 karma-chrome-launcher@^0.1.4
+144 http 200 https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz
+145 silly lockFile 6f63103b-rma-phantomjs-launcher-0-1-4-tgz https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz
+146 silly lockFile 6f63103b-rma-phantomjs-launcher-0-1-4-tgz https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.1.4.tgz
+147 silly lockFile 5b4ecc13-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@0.1.4
+148 silly lockFile 5b4ecc13-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@0.1.4
+149 silly lockFile a2b6b896-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@^0.1.4
+150 silly lockFile a2b6b896-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@^0.1.4
+151 http 200 https://registry.npmjs.org/karma
+152 silly registry.get cb [ 200,
+152 silly registry.get   { date: 'Sun, 07 Dec 2014 11:53:26 GMT',
+152 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+152 silly registry.get     etag: '"15YVGD0JTB84ABQ2G388546QU"',
+152 silly registry.get     'content-type': 'application/json',
+152 silly registry.get     'cache-control': 'max-age=60',
+152 silly registry.get     'content-length': '595402',
+152 silly registry.get     'accept-ranges': 'bytes',
+152 silly registry.get     via: '1.1 varnish',
+152 silly registry.get     age: '4',
+152 silly registry.get     'x-served-by': 'cache-fra1246-FRA',
+152 silly registry.get     'x-cache': 'HIT',
+152 silly registry.get     'x-cache-hits': '1',
+152 silly registry.get     'x-timer': 'S1417953206.017991,VS0,VE2',
+152 silly registry.get     vary: 'Accept',
+152 silly registry.get     'keep-alive': 'timeout=10, max=50',
+152 silly registry.get     connection: 'Keep-Alive' } ]
+153 silly addNameRange number 2 { name: 'karma', range: '>=0.12.21-0 <0.13.0-0', hasData: true }
+154 silly addNameRange versions [ 'karma',
+154 silly addNameRange   [ '0.8.0',
+154 silly addNameRange     '0.9.0-dart',
+154 silly addNameRange     '0.8.1',
+154 silly addNameRange     '0.8.2',
+154 silly addNameRange     '0.8.3',
+154 silly addNameRange     '0.9.0',
+154 silly addNameRange     '0.8.4',
+154 silly addNameRange     '0.9.1',
+154 silly addNameRange     '0.8.5',
+154 silly addNameRange     '0.9.2',
+154 silly addNameRange     '0.9.2-dart',
+154 silly addNameRange     '0.9.3',
+154 silly addNameRange     '0.8.6',
+154 silly addNameRange     '0.9.4',
+154 silly addNameRange     '0.8.7',
+154 silly addNameRange     '0.9.5',
+154 silly addNameRange     '0.9.6',
+154 silly addNameRange     '0.8.8',
+154 silly addNameRange     '0.9.7',
+154 silly addNameRange     '0.9.8',
+154 silly addNameRange     '0.10.0',
+154 silly addNameRange     '0.10.1',
+154 silly addNameRange     '0.10.2',
+154 silly addNameRange     '0.11.0',
+154 silly addNameRange     '0.11.1',
+154 silly addNameRange     '0.10.3',
+154 silly addNameRange     '0.10.4',
+154 silly addNameRange     '0.11.2',
+154 silly addNameRange     '0.11.3',
+154 silly addNameRange     '0.10.5',
+154 silly addNameRange     '0.11.4',
+154 silly addNameRange     '0.11.5',
+154 silly addNameRange     '0.10.6',
+154 silly addNameRange     '0.11.6',
+154 silly addNameRange     '0.10.7',
+154 silly addNameRange     '0.11.7',
+154 silly addNameRange     '0.11.8',
+154 silly addNameRange     '0.11.9',
+154 silly addNameRange     '0.10.8',
+154 silly addNameRange     '0.11.10',
+154 silly addNameRange     '0.11.11',
+154 silly addNameRange     '0.11.12',
+154 silly addNameRange     '0.11.11-dev',
+154 silly addNameRange     '0.10.9',
+154 silly addNameRange     '0.11.12-dev',
+154 silly addNameRange     '0.11.12-dev2',
+154 silly addNameRange     '0.11.13',
+154 silly addNameRange     '0.11.14',
+154 silly addNameRange     '0.12.0',
+154 silly addNameRange     '0.10.10',
+154 silly addNameRange     '0.12.1',
+154 silly addNameRange     '0.12.2',
+154 silly addNameRange     '0.12.3',
+154 silly addNameRange     '0.12.4',
+154 silly addNameRange     '0.12.5',
+154 silly addNameRange     '0.12.6',
+154 silly addNameRange     '0.12.6-beta-43e6e28',
+154 silly addNameRange     '0.12.7',
+154 silly addNameRange     '0.12.8',
+154 silly addNameRange     '0.12.9',
+154 silly addNameRange     '0.12.10',
+154 silly addNameRange     '0.12.11',
+154 silly addNameRange     '0.12.12',
+154 silly addNameRange     '0.12.11-beta-3029418',
+154 silly addNameRange     '0.12.13',
+154 silly addNameRange     '0.12.14',
+154 silly addNameRange     '0.12.15',
+154 silly addNameRange     '0.12.16',
+154 silly addNameRange     '0.12.16-beta-905422d',
+154 silly addNameRange     '0.12.17',
+154 silly addNameRange     '0.12.18',
+154 silly addNameRange     '0.12.19',
+154 silly addNameRange     '0.12.20',
+154 silly addNameRange     '0.12.21',
+154 silly addNameRange     '0.12.22',
+154 silly addNameRange     '0.12.23',
+154 silly addNameRange     '0.12.24',
+154 silly addNameRange     '0.12.24-beta-6cf7955',
+154 silly addNameRange     '0.12.25',
+154 silly addNameRange     '0.12.25-beta-37a7958',
+154 silly addNameRange     '0.12.25-beta-ad5bc24',
+154 silly addNameRange     '0.12.26',
+154 silly addNameRange     '0.12.27',
+154 silly addNameRange     '0.12.28',
+154 silly addNameRange     '0.12.28-beta-b9be580' ] ]
+155 verbose addNamed [ 'karma', '0.12.28' ]
+156 verbose addNamed [ '0.12.28', '0.12.28' ]
+157 silly lockFile 89295513-karma-0-12-28 karma@0.12.28
+158 verbose lock karma@0.12.28 /Users/mac/.npm/89295513-karma-0-12-28.lock
+159 silly lockFile 1642552f-pmjs-org-karma-karma-0-12-28-tgz https://registry.npmjs.org/karma/-/karma-0.12.28.tgz
+160 verbose lock https://registry.npmjs.org/karma/-/karma-0.12.28.tgz /Users/mac/.npm/1642552f-pmjs-org-karma-karma-0-12-28-tgz.lock
+161 verbose addRemoteTarball [ 'https://registry.npmjs.org/karma/-/karma-0.12.28.tgz',
+161 verbose addRemoteTarball   '80111f75ae99c9a0b0974ad0c98e6271bc2318fc' ]
+162 info retry fetch attempt 1 at 13:53:27
+163 verbose fetch to= /tmp/npm-80088-6GEyfJWh/registry.npmjs.org/karma/-/karma-0.12.28.tgz
+164 http GET https://registry.npmjs.org/karma/-/karma-0.12.28.tgz
+165 http 200 https://registry.npmjs.org/karma/-/karma-0.12.28.tgz
+166 silly lockFile 1642552f-pmjs-org-karma-karma-0-12-28-tgz https://registry.npmjs.org/karma/-/karma-0.12.28.tgz
+167 silly lockFile 1642552f-pmjs-org-karma-karma-0-12-28-tgz https://registry.npmjs.org/karma/-/karma-0.12.28.tgz
+168 silly lockFile 89295513-karma-0-12-28 karma@0.12.28
+169 silly lockFile 89295513-karma-0-12-28 karma@0.12.28
+170 silly lockFile 35ff5c57-karma-0-12-21 karma@^0.12.21
+171 silly lockFile 35ff5c57-karma-0-12-21 karma@^0.12.21
+172 error notarget No compatible version found: karma-jasmine@'>=0.1.6-0 <0.2.0-0'
+172 error notarget Valid install targets:
+172 error notarget ["0.0.1","0.0.2","0.0.3","0.1.0","0.1.1","0.1.2","0.1.3","0.1.4","0.1.5","0.2.0","0.2.1","0.2.2","0.2.3","0.3.0","0.3.1","0.3.2"]
+172 error notarget
+172 error notarget This is most likely not a problem with npm itself.
+172 error notarget In most cases you or one of your dependencies are requesting
+172 error notarget a package version that doesn't exist.
+173 error System Darwin 14.0.0
+174 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+175 error cwd /Applications/MAMP/htdocs/live-projects/resize
+176 error node -v v0.10.33
+177 error npm -v 1.4.28
+178 error code ETARGET
+179 verbose exit [ 1, true ]
