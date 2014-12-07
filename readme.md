@@ -24,10 +24,10 @@ launch gulp:
 gulp
 ```
 ### Tests
-Please test your code. [Testem](https://github.com/airportyh/testem) as tests runner and [jasmine](http://jasmine.github.io/) as testing framework.
+Please test your code. [KarmaJS](http://karma-runner.github.io/0.12/index.html) as tests enviroment and [jasmine](http://jasmine.github.io/) as testing framework.
 Launch testem:
 ```sh
-testem
+karma start
 ```
 You are all set.
 
