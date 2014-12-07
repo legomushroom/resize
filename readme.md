@@ -1,5 +1,7 @@
 Any HTML Element Resize Event
 ================
+[![Build Status](https://travis-ci.org/legomushroom/resize.svg?branch=master)](https://travis-ci.org/legomushroom/resize)
+
 Adds **onresize** event to any html element(without timer*). It is tiny (about 800 bytes min + gzip) and dependency free.
 
 _*timer is used as a fallback for elements that can not have child nodes(images, inputs etc)_
