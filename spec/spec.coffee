@@ -156,10 +156,12 @@ describe 'resizer', ->
       el = document.createElement 'div'
       beforeEach (done)->
         document.body.appendChild el
-
-        setTimeout (=> addEvent el, 'onresize', -> scope = @), 100
-        setTimeout (-> el.style.width = '201px'), 200
-        setTimeout (-> done()), 250
+        addEvent el, 'onresize', -> scope = @
+        # setTimeout =>
+        # need a timeout in real spec runner
+        el.style.width = '201px'
+        setTimeout (-> done()), 25
+        # , 150
 
       it 'should have node\'s scope' , -> expect(scope).toEqual(el)
 
