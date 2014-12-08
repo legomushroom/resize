@@ -148,7 +148,7 @@
             return height = newHeight;
           }
         };
-      })(this), this.o.interval || 200);
+      })(this), this.o.interval || 62.5);
     };
 
     Main.prototype.dispatchEvent = function(el) {

@@ -139,7 +139,7 @@ class Main
         @dispatchEvent el
         width  = newWidth
         height = newHeight
-    , @o.interval or 200
+    , @o.interval or 62.5
 
   dispatchEvent:(el)->
     if document.createEvent
