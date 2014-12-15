@@ -1,0 +1,30 @@
+{
+  "name": "any resize event",
+  "version": "1.0.0",
+  "homepage": "https://github.com/sol0mka/resize",
+  "authors": [
+    "@legomushroom <legomushroom@gmail.com>"
+  ],
+  "description": "Adds onresize event to any html element",
+  "main": "dist/any-resize-event.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "onresize",
+    "resize",
+    "event",
+    "html",
+    "polyfill"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
