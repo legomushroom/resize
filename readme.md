@@ -1,6 +1,6 @@
 Any HTML Element Resize Event
 ================
-[![NPM version](https://www.npmjs.com/package/any-resize-event)](http://badge.fury.io/js/pm2) [![Build Status](https://travis-ci.org/legomushroom/resize.svg?branch=master)](https://travis-ci.org/legomushroom/resize) <iframe src="//benschwarz.github.io/bower-badges/embed.html?pkgname=any-resize-event" width="160" height="32" allowtransparency="true" frameborder="0" scrolling="0"></iframe>
+[![Build Status](https://travis-ci.org/legomushroom/resize.svg?branch=master)](https://travis-ci.org/legomushroom/resize) [![npm version](https://badge.fury.io/js/any-resize-event.svg)](http://badge.fury.io/js/any-resize-event) <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30">
 
 Adds **onresize** event to any html element. It is tiny (about 800 bytes min + gzip) and dependency free.
 
