@@ -1,12 +1,8 @@
 {
-  "name": "app-name",
-  "version": "0.0.0",
+  "name": "any-resize-event",
+  "version": "1.0.0",
   "license": "MIT",
-  "author": {
-    "name": "LegoMushroom",
-    "email": "legomushroom@gmail.com",
-    "url": "http://legomushroom.com"
-  },
+  "author": "@LegoMushroom <legomushroom@gmail.com> (http://legomushroom.com)",
   "private": false,
   "scripts": {
     "test": "karma start --single-run"
@@ -39,5 +35,22 @@
     "karma-jasmine": "^0.2.0",
     "karma-chrome-launcher": "^0.1.4",
     "karma-phantomjs-launcher": "^0.1.4"
-  }
+  },
+  "description": "Adds \"onresize\" event to any html element",
+  "main": "dist/any-resize-event.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/legomushroom/resize.git"
+  },
+  "keywords": [
+    "onresie",
+    "resize",
+    "event",
+    "html",
+    "polyfill"
+  ],
+  "bugs": {
+    "url": "https://github.com/legomushroom/resize/issues"
+  },
+  "homepage": "https://github.com/legomushroom/resize"
 }

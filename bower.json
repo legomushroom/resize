@@ -1,11 +1,11 @@
 {
   "name": "any resize event",
   "version": "1.0.0",
-  "homepage": "https://github.com/sol0mka/resize",
+  "homepage": "https://github.com/legomushroom/resize",
   "authors": [
     "@legomushroom <legomushroom@gmail.com>"
   ],
-  "description": "Adds onresize event to any html element",
+  "description": "Adds \"onresize\" event to any html element",
   "main": "dist/any-resize-event.js",
   "moduleType": [
     "amd",
