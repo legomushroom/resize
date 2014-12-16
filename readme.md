@@ -1,14 +1,15 @@
 Any HTML Element Resize Event
 ================
-[![Build Status](https://travis-ci.org/legomushroom/resize.svg?branch=master)](https://travis-ci.org/legomushroom/resize) [![npm version](https://badge.fury.io/js/any-resize-event.svg)](http://badge.fury.io/js/any-resize-event) <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30">
+[![Build Status](https://travis-ci.org/legomushroom/resize.svg?branch=master)](https://travis-ci.org/legomushroom/resize) [![npm version](https://badge.fury.io/js/any-resize-event.svg)](http://badge.fury.io/js/any-resize-event) <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30" style="position:relative;top:6px">
 
-Adds **onresize** event to any html element. It is tiny (about 800 bytes min + gzip) and dependency free.
+Adds **onresize** event to any html element.
+It is tiny (about 800 bytes min + gzip) and dependency free.
 
 _*timer is used as a fallback for elements that can not have child nodes(images, inputs etc)_
 
 ### Usage
 
-Just link source file in your html. Add **onresize** event listener to any element as you usually do. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
+Just link source file in your html. Add **"onresize"** event listener to any element as you usually do. Plays well with jquery too. [sandbox](http://codepen.io/sol0mka/pen/FnizC)
 
 ###Contibuting
 
