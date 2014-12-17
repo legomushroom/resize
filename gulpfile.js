@@ -13,6 +13,8 @@ var coffeelint 		= require('gulp-coffeelint');
 var plumber 			= require('gulp-plumber');
 var uglify 				= require('gulp-uglify');
 var jasminePhantomJs = require('gulp-jasmine2-phantomjs');
+var clone  = require('gulp-clone');
+var rename = require("gulp-rename");
 
 var devFolder 	= '';
 var distFolder  = '';
@@ -61,7 +63,10 @@ gulp.task('coffee', function(e){
 
 gulp.task('build', function() {
 	return gulp.src(paths.src.mainJs)
+		.pipe(clone())
+		.pipe(gulp.dest('dist/'))
 		.pipe(uglify({ preserveComments: 'some' }))
+		.pipe(rename('any-resize-event.min.js'))
 		.pipe(gulp.dest('dist/'))
 });
 
@@ -75,7 +80,6 @@ gulp.task('coffee:tests', function(e){
 					.pipe(gulp.dest(paths.dist.tests))
 					.pipe(livereload())
 });
-
 
 gulp.task('test', function(){
 	return gulp.src('spec/SpecRunner.html')
